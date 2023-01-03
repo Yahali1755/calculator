@@ -1,24 +1,28 @@
-import { Button, Grid } from '@mui/material'
+import { Grid, Button, Box } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles({
   app: {
+    fontFamily: 'system-ui',
+    width: '100%',
+    height: '100%'
   },
-  button: { 
+  calculatorKey: { 
     '&:hover': {
-      color: 'white',
-      borderColor: 'white'
+      backgroundColor: 'white',
     },
     color: 'black',
+    fontFamily: 'inherit',
     borderColor: 'black', 
-    borderRadius: '25%'
-
+    backgroundColor: 'lightgrey',
+    width: '100%',
+    height: '100%',
+    marginTop: '30%'
   },
   container: { 
-    marginTop: '25vh',
+    fontFamily: 'inherit',
     height: '50vh', 
-    width: '30vh', 
-    margin: 'auto',
+    width: '15vw', 
     borderRadius: '10%', 
     backgroundColor: 'grey',
   }
@@ -29,20 +33,40 @@ function App() {
 
   return (
     <div className={classes.app}>
-        <Grid container className={classes.container}>
-          <Grid item xs={3}>
-            <Button variant='outlined' className={classes.button}> click on me </Button>
+        <Box sx={{ flexGrow: '1', display: 'grid', justifyContent: 'center', alignContent: 'center'}}>
+          <Grid container className={classes.container} spacing={1}>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button className={classes.calculatorKey}> 1 </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={3}>
-            <Button variant='outlined' className={classes.button}> click on me </Button>
-          </Grid>
-          <Grid item xs={3} >
-            <Button variant='outlined' className={classes.button}> click on me </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button variant='outlined' className={classes.button}> click on me </Button>
-          </Grid>
-        </Grid>
+        </Box>
     </div>
   );
 }
