@@ -6,7 +6,7 @@ const App = () => {
   return (
     <StyledEngineProvider injectFirst>
       <ResultProvider>
-        <Calculator/>
+          <Calculator/>
       </ResultProvider>
     </StyledEngineProvider>
   );

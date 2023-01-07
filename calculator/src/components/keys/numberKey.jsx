@@ -1,7 +1,12 @@
 import { CalculatorKey } from './calculatorKey'
+import { useUpdateResult } from '../../contexts/resultContext';
 
-export const NumberKey = ({value}) => {
+export const NumberKey = ({label}) => {
+  const setResult = useUpdateResult();
+
+  const onClick = () => setResult(currentResult => currentResult.concat(label));
+
   return (
-    <CalculatorKey value={value}/>
+    <CalculatorKey onClick={onClick} label={label}/>
   )
 }

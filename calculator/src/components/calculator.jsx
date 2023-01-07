@@ -4,6 +4,8 @@ import { makeStyles } from '@mui/styles'
 import { NumberKey } from './keys/numberKey';
 import { OperatorKey } from './keys/operatorKey';
 import { DisplayPanel } from './displayPanel'
+import { ClearKey } from './keys/clearKey';
+import { EqualsKey } from './keys/equalsKey';
 
 const useStyles = makeStyles({
   calculator: {
@@ -49,30 +51,26 @@ export const Calculator = () => {
           <DisplayPanel/>
         </Grid>
         <Grid container className={classes.keysContainer}>
-          <Grid item xs={6}>
-            <Button className={classes.calculatorKey}> AC </Button>
-          </Grid>
-          <OperatorKey value={'%'}/>
-          <OperatorKey value={'+'}/>
-          <NumberKey value={1}/>
-          <NumberKey value={2}/>
-          <NumberKey value={3}/>
-          <OperatorKey value={'/'}/>
-          <NumberKey value={4}/>
-          <NumberKey value={5}/>
-          <NumberKey value={6}/>
-          <OperatorKey value={'*'}/>
-          <NumberKey value={7}/>
-          <NumberKey value={8}/>
-          <NumberKey value={9}/>
-          <OperatorKey value={'-'}/>
+          <ClearKey label={'AC'}/>
+          <OperatorKey label={'%'}/>
+          <OperatorKey label={'+'}/>
+          <NumberKey label={'1'}/>
+          <NumberKey label={'2'}/>
+          <NumberKey label={'3'}/>
+          <OperatorKey label={'/'}/>
+          <NumberKey label={'4'}/>
+          <NumberKey label={'5'}/>
+          <NumberKey label={'6'}/>
+          <OperatorKey label={'*'}/>
+          <NumberKey label={'7'}/>
+          <NumberKey label={'8'}/>
+          <NumberKey label={'9'}/>
+          <OperatorKey label={'-'}/>
           <Grid item xs={3}>
             <Button className={classes.calculatorKey}> . </Button>
           </Grid>
-          <NumberKey value={0}/>
-          <Grid item xs={6}>
-            <Button className={classes.calculatorKey}> = </Button>
-          </Grid>
+          <NumberKey label={'0'}/>
+          <EqualsKey label={"="}/>
         </Grid>
       </Grid>
     </div>

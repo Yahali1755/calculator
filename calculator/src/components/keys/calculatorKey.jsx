@@ -16,12 +16,12 @@ const useStyles = makeStyles({
   }
 });
 
-export const CalculatorKey  = ({value}) => {
+export const CalculatorKey  = ({label, xs, onClick}) => {
   const classes = useStyles();
 
   return (
-    <Grid item xs={3}>
-        <Button className={classes.calculatorKey}> {value} </Button>
+    <Grid item xs={xs ? xs : 3}>
+        <Button onClick={onClick} className={classes.calculatorKey}> {label} </Button>
     </Grid>
   )
 }
