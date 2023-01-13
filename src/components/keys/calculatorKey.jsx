@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Grid, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
@@ -12,11 +13,11 @@ const useStyles = makeStyles({
     backgroundColor: 'lightgrey',
     width: '100%',
     height: '100%',
-    fontSize: '30px',
+    fontSize: '30px'
   }
 });
 
-export const CalculatorKey  = ({label, xs, onClick}) => {
+export const CalculatorKey  = ({ label, xs, onClick }) => {
   const classes = useStyles();
 
   return (

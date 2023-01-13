@@ -1,12 +1,12 @@
 import { CalculatorKey } from './calculatorKey'
-import { useUpdateResult } from '../../contexts/resultContext';
+import { useEquation } from '../../contexts/equationContext';
 
-export const ClearKey = ({label}) => {
-    const setResult = useUpdateResult();
+export const ClearKey = ({ label }) => {
+    const { setEquation } = useEquation();
 
-    const clearResult = () => setResult('');
+    const clearEquation = () => setEquation('0');
 
     return (
-        <CalculatorKey onClick={clearResult} xs={6} label={label}/>
+        <CalculatorKey onClick={clearEquation} xs={6} label={label}/>
     )
 }

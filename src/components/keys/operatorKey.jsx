@@ -1,14 +1,14 @@
 import { CalculatorKey } from './calculatorKey'
-import { useUpdateResult } from '../../contexts/resultContext';
 import { isLastKeyAnOperator } from '../../utils/operator.util';
+import { useEquation } from '../../contexts/equationContext';
 
-export const OperatorKey = ({label}) => {
-  const setResult = useUpdateResult();
+export const OperatorKey = ({ label }) => {
+  const { setEquation } = useEquation();
 
-  const onClick = () => setResult(currentResult => !isLastKeyAnOperator(currentResult) 
-    ? currentResult.concat(` ${label} `) : currentResult);
+  const onClick = () => setEquation(currentEquation => !isLastKeyAnOperator(currentEquation) 
+    ? currentEquation.concat(` ${label} `) : currentEquation);
 
   return (
     <CalculatorKey onClick={onClick} label={label}/>
   )
-}
+};

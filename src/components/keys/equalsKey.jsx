@@ -1,5 +1,6 @@
 import { CalculatorKey } from './calculatorKey'
-import { useUpdateResult } from '../../contexts/resultContext';
+import { useEquation } from '../../contexts/equationContext';
+import { handleOperatorBeingLastEquationPart, isEquationAlreadySolved } from '../../utils/equation.util';
 
 const operationDictionary = (firstNumber, secondNumber) => ({
     '+': () => firstNumber + secondNumber,
@@ -10,29 +11,33 @@ const operationDictionary = (firstNumber, secondNumber) => ({
 });
 
 export const EqualsKey = ({ label }) => {
-  const setResult = useUpdateResult();
+  const { setEquation } = useEquation();
 
   const onClick = () => {
-    setResult(equation => {
+    setEquation(equation => {
         const equationParts = equation.split(' ') 
 
-        const result = equationParts.reduce((equationResult, currentPart, index) => {
-          if (index + 2 >= equationParts.length) {
+        handleOperatorBeingLastEquationPart(equationParts);
+
+        let equationResult;
+
+        for (let index = 0; index < equationParts.length - 1; index++) {
+          if (isEquationAlreadySolved(equationParts.length, index)) {
             return equationResult;
           }
 
-          let firstNumber = equationResult ? equationResult : +currentPart;
+          let firstNumber = equationResult ? equationResult : equationParts[index];
           let operator = equationParts[index + 1];
           let secondNumber = +equationParts[index + 2];
 
           equationResult = operationDictionary(firstNumber, secondNumber)[operator]();
 
           index++;
+        }
 
-          return equationResult
-        }, 0)
+        const roundedResult = Math.round(equationResult * 1000) / 1000;
 
-        return result.toString();
+        return roundedResult.toString();      
     })
   };
 

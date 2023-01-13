@@ -1,6 +1,6 @@
 import { Grid, TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles';
-import { useResult } from '../contexts/resultContext';
+import { useEquation } from '../contexts/equationContext';
 
 const useStyles = makeStyles({
     inputProps: {
@@ -19,11 +19,11 @@ const useStyles = makeStyles({
 
 export const DisplayPanel  = () => {
   const classes = useStyles();
-  const result = useResult();
+  const { equation } = useEquation();
 
   return (
     <Grid item>
-        <TextField disabled value={result} inputProps={{className: classes.inputProps}} 
+        <TextField disabled value={equation} inputProps={{className: classes.inputProps}} 
           fullWidth className={classes.displayPanel}/>
     </Grid>
   )

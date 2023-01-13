@@ -1,13 +1,13 @@
 import { StyledEngineProvider } from '@mui/material';
 import { Calculator } from './components/calculator';
-import { ResultProvider } from './contexts/resultContext';
+import { EquationProvider } from './contexts/equationContext';
 
 const App = () => {
   return (
     <StyledEngineProvider injectFirst>
-      <ResultProvider>
+      <EquationProvider>
           <Calculator/>
-      </ResultProvider>
+      </EquationProvider>
     </StyledEngineProvider>
   );
 }
