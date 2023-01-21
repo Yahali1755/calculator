@@ -24,11 +24,11 @@ export const Calculator = () => {
 
   return (
     <div className={classes.calculatorContainer}>
-      <Grid item container xs={3}>
+      <Grid container xs={2}>
         <Grid container item className={classes.displayPanelContainer}>
           <DisplayPanel/>
         </Grid>
-        <Grid container className={classes.keysContainer}>
+        <Grid container item className={classes.keysContainer}>
           <ClearKey label={'AC'}/>
           <OperatorKey label={'%'}/>
           <OperatorKey label={'+'}/>

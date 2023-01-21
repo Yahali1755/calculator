@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 export const DisplayPanel  = () => {
   const classes = useStyles();
-  const { equation } = useEquation();
+  const equation = useEquation();
 
   return (
     <Grid item>

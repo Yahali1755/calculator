@@ -1,12 +1,22 @@
 import { CalculatorKey } from './calculatorKey'
-import { useEquation } from '../../contexts/equationContext';
+import { useSetEquation } from '../../contexts/equationContext';
 import { isEquationCleared } from '../../utils/equation.util';
+import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 
 export const NumberKey = ({ label }) => {
-  const { equation, setEquation } = useEquation();
+  const setEquation = useSetEquation();
+  const shouldResetEquation = useShouldResetEquation();
+  const setShouldResetEquation = useSetShouldResetEquation();
 
-  const onClick = () => setEquation(currentEqaution => isEquationCleared(equation) ? 
-    label :  currentEqaution.concat(label))
+  const onClick = () => setEquation(currentEquation => {
+    if (shouldResetEquation) {
+      setShouldResetEquation(false);
+
+      return label;
+    }
+
+    return isEquationCleared(currentEquation) ? label :  currentEquation.concat(label);
+  })
 
   return (
     <CalculatorKey onClick={onClick} label={label}/>

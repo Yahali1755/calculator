@@ -1,12 +1,22 @@
+import { useEffect } from 'react';
+
 import { CalculatorKey } from './calculatorKey'
 import { isLastKeyAnOperator } from '../../utils/operator.util';
-import { useEquation } from '../../contexts/equationContext';
+import { useSetEquation } from '../../contexts/equationContext';
+import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 
 export const OperatorKey = ({ label }) => {
-  const { setEquation } = useEquation();
+  const setEquation = useSetEquation();
+  const shouldResetEquation = useShouldResetEquation();
+  const setShouldResetEquation = useSetShouldResetEquation();
 
-  const onClick = () => setEquation(currentEquation => !isLastKeyAnOperator(currentEquation) 
-    ? currentEquation.concat(` ${label} `) : currentEquation);
+  const onClick = () => setEquation(currentEquation => {
+    if (shouldResetEquation) {
+      setShouldResetEquation(false);
+    }
+
+    return !isLastKeyAnOperator(currentEquation) ? currentEquation.concat(` ${label} `) : currentEquation
+  });
 
   return (
     <CalculatorKey onClick={onClick} label={label}/>

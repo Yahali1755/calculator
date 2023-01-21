@@ -1,8 +1,8 @@
 import { CalculatorKey } from './calculatorKey'
-import { useEquation } from '../../contexts/equationContext';
+import { useSetEquation } from '../../contexts/equationContext';
 
 export const ClearKey = ({ label }) => {
-    const { setEquation } = useEquation();
+    const setEquation = useSetEquation();
 
     const clearEquation = () => setEquation('0');
 
