@@ -7,7 +7,7 @@ export const NumberKey = ({ label }) => {
   const setEquation = useSetEquation();
   const shouldResetEquation = useShouldResetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();
-
+  
   const onClick = () => setEquation(currentEquation => {
     if (shouldResetEquation) {
       setShouldResetEquation(false);

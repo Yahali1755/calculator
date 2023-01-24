@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 
-const EquationContext = React.createContext()
-const SetEquationContext = React.createContext()
+const EquationContext = React.createContext();
+const SetEquationContext = React.createContext();
 
 export const useEquation = () => useContext(EquationContext);
 export const useSetEquation = () => useContext(SetEquationContext);

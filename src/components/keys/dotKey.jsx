@@ -9,17 +9,17 @@ export const DotKey = ({ label }) => {
   const shouldResetEquation = useShouldResetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();
 
-  const onClick = () => setEquation(currentEqaution => {
+  const onClick = () => setEquation(currentEquation => {
     if(shouldResetEquation) {
       setShouldResetEquation(false);
 
       return label;
     }
-    else if (isEquationCleared(currentEqaution)) {
+    else if (isEquationCleared(currentEquation)) {
         return label;
     }
 
-    return isLastKeyAnOperator(currentEqaution) ? currentEqaution : currentEqaution.concat(label);
+    return isLastKeyAnOperator(currentEquation) ? currentEquation : currentEquation.concat(label);
   });
 
   return (

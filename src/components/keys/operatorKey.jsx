@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { CalculatorKey } from './calculatorKey'
 import { isLastKeyAnOperator } from '../../utils/operator.util';
 import { useSetEquation } from '../../contexts/equationContext';
