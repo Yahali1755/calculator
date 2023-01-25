@@ -1,5 +1,3 @@
-export const isEquationAlreadySolved = (length, index) => length - 3 < index; 
+export const defaultEquationValue = '0';
 
-export const isEquationCleared = equation => equation === '0';
-
-export const isEquationSingleNumberWithoutOperator = length => length === 1;
+export const isEquationCleared = equation => equation === defaultEquationValue;

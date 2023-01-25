@@ -12,14 +12,18 @@ export const EqualsKey = ({ label }) => {
       if (isLastKeyAnOperator(equation)) {
         return equation;
       }
-      
-      const result = eval(equation);
-
-      const roundedResult = Math.round(result * 1000) / 1000;
 
       setShouldResetEquation(true);
 
-      return roundedResult.toString();
+      try {
+        const result = eval(equation);
+
+        const roundedResult = Math.round(result * 1000) / 1000;
+
+        return roundedResult.toString();
+      } catch {
+        return 'Error';
+      }
     })
   };
 

@@ -1,7 +1,6 @@
 import { CalculatorKey } from './calculatorKey'
 import { useSetEquation } from '../../contexts/equationContext';
 import { isEquationCleared } from '../../utils/equation.util';
-import { isLastKeyAnOperator } from '../../utils/operator.util';
 import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 
 export const DotKey = ({ label }) => {
@@ -15,11 +14,8 @@ export const DotKey = ({ label }) => {
 
       return label;
     }
-    else if (isEquationCleared(currentEquation)) {
-        return label;
-    }
 
-    return isLastKeyAnOperator(currentEquation) ? currentEquation : currentEquation.concat(label);
+    return isEquationCleared(currentEquation) ? label : currentEquation.concat(label);
   });
 
   return (

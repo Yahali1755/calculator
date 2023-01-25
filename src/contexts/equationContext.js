@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 
+import { defaultEquationValue } from '../utils/equation.util';
+
 const EquationContext = React.createContext();
 const SetEquationContext = React.createContext();
 
@@ -7,7 +9,7 @@ export const useEquation = () => useContext(EquationContext);
 export const useSetEquation = () => useContext(SetEquationContext);
 
 export const EquationProvider = ({ children }) => {
-    const [equation, setEquation] = useState('0');
+    const [equation, setEquation] = useState(defaultEquationValue);
     
     return (
         <EquationContext.Provider value={equation}>
