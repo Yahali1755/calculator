@@ -9,13 +9,19 @@ import { EqualsKey } from './keys/equalsKey';
 import { DotKey } from './keys/dotKey';
 
 const useStyles = makeStyles({
-  calculatorContainer: {
+  appContainer: {
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     height: '100vh',
     boxSizing: 'border-box',
-    fontFamily: 'system-ui',
+    fontFamily: 'system-ui'
+  },
+  calculatorContainer: {
+    display: 'grid',
+    height: '50%',
+    gridAutoRows: 'auto',
+    minWidth: '200px',
   }
 });
 
@@ -23,12 +29,12 @@ export const Calculator = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.calculatorContainer}>
-      <Grid container xs={2}>
-        <Grid container item className={classes.displayPanelContainer}>
+    <div className={classes.appContainer}>
+      <Grid container className={classes.calculatorContainer} xs={2}>
+        <Grid container item>
           <DisplayPanel/>
         </Grid>
-        <Grid container item className={classes.keysContainer}>
+        <Grid container item>
           <ClearKey label={'AC'}/>
           <OperatorKey label={'%'}/>
           <OperatorKey label={'+'}/>

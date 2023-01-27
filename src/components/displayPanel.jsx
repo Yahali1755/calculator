@@ -1,19 +1,20 @@
-import { Grid, TextField } from '@mui/material'
+import { Grid, Input } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 import { useEquation } from '../contexts/equationContext';
 
 const useStyles = makeStyles({
     inputProps: {
-        height: '145px',
         fontSize: '30px',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     displayPanel: {
       '& :disabled': {
         WebkitTextFillColor: 'black'
       },
       boxSizing: 'border-box',
-      border: '1px solid black'
+      border: '1px solid black',
+      height: '100%',
+      maxWidth: 'none'
     }
 });
 
@@ -23,8 +24,7 @@ export const DisplayPanel  = () => {
 
   return (
     <Grid item>
-        <TextField disabled value={equation} inputProps={{className: classes.inputProps}} 
-          fullWidth className={classes.displayPanel}/>
+        <Input disabled value={equation} inputProps={{className: classes.inputProps}} className={classes.displayPanel}/>
     </Grid>
   )
 }

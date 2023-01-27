@@ -13,7 +13,9 @@ const useStyles = makeStyles({
     backgroundColor: 'lightgrey',
     width: '100%',
     height: '100%',
-    fontSize: '30px'
+    maxHeight: 'unset',
+    fontSize: '30px',
+    minWidth: 0
   }
 });
 
