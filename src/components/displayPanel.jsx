@@ -4,17 +4,15 @@ import { useEquation } from '../contexts/equationContext';
 
 const useStyles = makeStyles({
     inputProps: {
-        fontSize: '30px',
+        fontSize: '25px',
         textAlign: 'center',
     },
     displayPanel: {
       '& :disabled': {
         WebkitTextFillColor: 'black'
       },
-      boxSizing: 'border-box',
       border: '1px solid black',
       height: '100%',
-      maxWidth: 'none'
     }
 });
 

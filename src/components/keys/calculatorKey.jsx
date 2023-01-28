@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     width: '100%',
     height: '100%',
     maxHeight: 'unset',
-    fontSize: '30px',
+    fontSize: '25px',
     minWidth: 0
   }
 });
