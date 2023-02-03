@@ -14,13 +14,12 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
-    boxSizing: 'border-box',
     fontFamily: 'system-ui'
   },
   calculatorContainer: {
     display: 'grid',
+    gridTemplateRows: '30%',
     height: '50%',
-    gridAutoRows: 'auto',
     minWidth: '200px',
   }
 });
@@ -29,9 +28,9 @@ export const Calculator = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.appContainer}>
-      <Grid container className={classes.calculatorContainer} xs={2}>
-        <Grid container item>
+    <Grid container className={classes.appContainer}>
+      <Grid container item className={classes.calculatorContainer} xs={2}>
+        <Grid item>
           <DisplayPanel/>
         </Grid>
         <Grid container item>
@@ -55,6 +54,6 @@ export const Calculator = () => {
           <EqualsKey label={"="}/>
         </Grid>
       </Grid>
-    </div>
+    </Grid>
   );
 }

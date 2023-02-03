@@ -13,7 +13,6 @@ const useStyles = makeStyles({
     backgroundColor: 'lightgrey',
     width: '100%',
     height: '100%',
-    maxHeight: 'unset',
     fontSize: '25px',
     minWidth: 0
   }
