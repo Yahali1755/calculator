@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     gridTemplateRows: '30%',
     height: '50%',
     minWidth: '200px',
+    minHeight: '300px'
   }
 });
 
@@ -30,7 +31,7 @@ export const Calculator = () => {
   return (
     <Grid container className={classes.appContainer}>
       <Grid container item className={classes.calculatorContainer} xs={2}>
-        <Grid item>
+        <Grid sx={{}} item>
           <DisplayPanel/>
         </Grid>
         <Grid container item>

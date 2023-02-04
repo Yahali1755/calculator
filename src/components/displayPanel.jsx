@@ -11,7 +11,6 @@ const useStyles = makeStyles({
       border: '1px solid black',
       height: '100%',
       width: '100%',
-      minHeight: '100px'
     }
 });
 
