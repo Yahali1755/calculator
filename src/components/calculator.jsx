@@ -1,12 +1,11 @@
 import { Grid } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 
-import { NumberKey } from './keys/numberKey';
+import { OperandKey } from './keys/operandKey';
 import { OperatorKey } from './keys/operatorKey';
 import { DisplayPanel } from './displayPanel'
 import { ClearKey } from './keys/clearKey';
 import { EqualsKey } from './keys/equalsKey';
-import { DotKey } from './keys/dotKey';
 
 const useStyles = makeStyles({
   appContainer: {
@@ -31,27 +30,27 @@ export const Calculator = () => {
   return (
     <Grid container className={classes.appContainer}>
       <Grid container item className={classes.calculatorContainer} xs={2}>
-        <Grid sx={{}} item>
+        <Grid item>
           <DisplayPanel/>
         </Grid>
         <Grid container item>
           <ClearKey label={'AC'}/>
           <OperatorKey label={'%'}/>
           <OperatorKey label={'+'}/>
-          <NumberKey label={'1'}/>
-          <NumberKey label={'2'}/>
-          <NumberKey label={'3'}/>
+          <OperandKey label={'1'}/>
+          <OperandKey label={'2'}/>
+          <OperandKey label={'3'}/>
           <OperatorKey label={'/'}/>
-          <NumberKey label={'4'}/>
-          <NumberKey label={'5'}/>
-          <NumberKey label={'6'}/>
+          <OperandKey label={'4'}/>
+          <OperandKey label={'5'}/>
+          <OperandKey label={'6'}/>
           <OperatorKey label={'*'}/>
-          <NumberKey label={'7'}/>
-          <NumberKey label={'8'}/>
-          <NumberKey label={'9'}/>
+          <OperandKey label={'7'}/>
+          <OperandKey label={'8'}/>
+          <OperandKey label={'9'}/>
           <OperatorKey label={'-'}/>
-          <DotKey label={'.'}/>
-          <NumberKey label={'0'}/>
+          <OperandKey label={'.'}/>
+          <OperandKey label={'0'}/>
           <EqualsKey label={"="}/>
         </Grid>
       </Grid>

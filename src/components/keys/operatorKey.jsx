@@ -1,8 +1,8 @@
-import { CalculatorKey } from './calculatorKey'
-import { isLastKeyAnOperator, isLastKeyMinus, isMinusKey } from '../../utils/operator.util';
+import { Key } from './Key'
+import { isMinusKey } from '../../utils/operator.util';
 import { useSetEquation } from '../../contexts/equationContext';
 import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
-import { defaultEquationValue, isEquationCleared, isResultError } from '../../utils/equation.util';
+import { defaultEquationValue, isResultError, adjustEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/equation.util';
 
 export const OperatorKey = ({ label }) => {
   const setEquation = useSetEquation();
@@ -19,21 +19,17 @@ export const OperatorKey = ({ label }) => {
     }
 
     if (isMinusKey(label)) {
-      if (isEquationCleared(currentEquation)) {
-        return label;
-      }
-
-      if (isLastKeyMinus(currentEquation)) {
-        return currentEquation;
-      }
-
-      return isLastKeyAnOperator(currentEquation) ? currentEquation.concat(` ${label}`) : currentEquation.concat(` ${label} `)
+      return adjustEquationOnMinusKeyClick(currentEquation, label)
     }
 
-    return !isLastKeyAnOperator(currentEquation) ? currentEquation.concat(` ${label} `) : currentEquation
+    if (isLastKeyAnOperator) {
+      return currentEquation;
+    }
+
+    return currentEquation.concat(` ${label} `)
   });
 
   return (
-    <CalculatorKey onClick={onClick} label={label}/>
+    <Key onClick={onClick} label={label}/>
   )
 };

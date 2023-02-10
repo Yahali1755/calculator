@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Grid, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
@@ -18,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-export const CalculatorKey  = ({ label, xs, onClick }) => {
+export const Key  = ({ label, xs, onClick }) => {
   const classes = useStyles();
 
   return (

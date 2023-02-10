@@ -1,24 +1,28 @@
-import { CalculatorKey } from './calculatorKey'
+import { Key } from './Key'
 import { useSetEquation } from '../../contexts/equationContext';
 import { isEquationCleared } from '../../utils/equation.util';
-import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
+import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 
-export const DotKey = ({ label }) => {
+export const OperandKey = ({ label }) => {
   const setEquation = useSetEquation();
   const shouldResetEquation = useShouldResetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();
-
+  
   const onClick = () => setEquation(currentEquation => {
-    if(shouldResetEquation) {
+    if (shouldResetEquation) {
       setShouldResetEquation(false);
 
       return label;
     }
 
-    return isEquationCleared(currentEquation) ? label : currentEquation.concat(label);
-  });
+    if (isEquationCleared(currentEquation)) {
+      return label;
+    }
+
+    return currentEquation.concat(label);
+  })
 
   return (
-    <CalculatorKey onClick={onClick} label={label}/>
-  );
-};
+    <Key onClick={onClick} label={label}/>
+  )
+}
