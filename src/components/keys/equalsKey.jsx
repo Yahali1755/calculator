@@ -13,11 +13,11 @@ export const EqualsKey = ({ label }) => {
         return equation;
       }
 
-      setShouldResetEquation(true);
+      setShouldResetEquation();
 
       try {
         // eslint-disable-next-line
-        const result = eval(equation);
+        const result = eval(equation)
 
         const roundedResult = Math.round(result * 1000) / 1000;
 

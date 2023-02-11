@@ -22,7 +22,7 @@ export const OperatorKey = ({ label }) => {
       return adjustEquationOnMinusKeyClick(currentEquation, label)
     }
 
-    if (isLastKeyAnOperator) {
+    if (isLastKeyAnOperator(currentEquation)) {
       return currentEquation;
     }
 
