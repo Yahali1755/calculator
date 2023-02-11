@@ -1,8 +1,8 @@
 import { Key } from './Key'
-import { isMinusKey } from '../../utils/operator.util';
+import { isMinusKey } from '../../utils/operatorUtil';
 import { useSetEquation } from '../../contexts/equationContext';
 import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
-import { defaultEquationValue, isResultError, adjustEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/equation.util';
+import { defaultEquationValue, isResultError, adjustEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/equationUtil';
 
 export const OperatorKey = ({ label }) => {
   const setEquation = useSetEquation();
@@ -14,22 +14,22 @@ export const OperatorKey = ({ label }) => {
       setShouldResetEquation(false);
 
       if (isResultError(currentEquation)) {
-        return `${defaultEquationValue} ${label} ` 
-      }
-    }
+        return `${defaultEquationValue} ${label} `; 
+      };
+    };
 
     if (isMinusKey(label)) {
-      return adjustEquationOnMinusKeyClick(currentEquation, label)
-    }
+      return adjustEquationOnMinusKeyClick(currentEquation, label);
+    };
 
     if (isLastKeyAnOperator(currentEquation)) {
       return currentEquation;
-    }
+    };
 
-    return currentEquation.concat(` ${label} `)
+    return currentEquation.concat(` ${label} `);
   });
 
   return (
     <Key onClick={onClick} label={label}/>
-  )
+  );
 };

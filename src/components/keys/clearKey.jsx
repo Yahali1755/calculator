@@ -1,6 +1,6 @@
 import { Key } from './Key'
 import { useSetEquation } from '../../contexts/equationContext';
-import { defaultEquationValue } from '../../utils/equation.util';
+import { defaultEquationValue } from '../../utils/equationUtil';
 
 export const ClearKey = ({ label }) => {
     const setEquation = useSetEquation();
@@ -8,6 +8,6 @@ export const ClearKey = ({ label }) => {
     const clearEquation = () => setEquation(defaultEquationValue);
 
     return (
-        <Key onClick={clearEquation} xs={6} label={label}/>
-    )
-}
+        <Key xs={6} onClick={clearEquation} label={label}/>
+    );
+};

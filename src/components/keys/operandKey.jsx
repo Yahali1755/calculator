@@ -1,6 +1,6 @@
 import { Key } from './Key'
 import { useSetEquation } from '../../contexts/equationContext';
-import { isEquationCleared } from '../../utils/equation.util';
+import { isEquationCleared } from '../../utils/equationUtil';
 import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 
 export const OperandKey = ({ label }) => {
@@ -13,16 +13,16 @@ export const OperandKey = ({ label }) => {
       setShouldResetEquation(false);
 
       return label;
-    }
+    };
 
     if (isEquationCleared(currentEquation)) {
       return label;
-    }
+    };
 
     return currentEquation.concat(label);
-  })
+  });
 
   return (
     <Key onClick={onClick} label={label}/>
-  )
-}
+  );
+};

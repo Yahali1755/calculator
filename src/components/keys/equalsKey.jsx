@@ -1,7 +1,7 @@
-import { Key } from './Key'
+import { Key } from './Key';
 import { useSetEquation } from '../../contexts/equationContext';
 import { useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
-import { isResultError, isLastKeyAnOperator } from '../../utils/equation.util';
+import { isResultError, isLastKeyAnOperator } from '../../utils/equationUtil';
 
 export const EqualsKey = ({ label }) => {
   const setEquation = useSetEquation();
@@ -11,13 +11,13 @@ export const EqualsKey = ({ label }) => {
     setEquation(equation => {
       if (isLastKeyAnOperator(equation) || isResultError(equation)) {
         return equation;
-      }
+      };
 
       setShouldResetEquation();
 
       try {
         // eslint-disable-next-line
-        const result = eval(equation)
+        const result = eval(equation);
 
         const roundedResult = Math.round(result * 1000) / 1000;
 
@@ -25,10 +25,10 @@ export const EqualsKey = ({ label }) => {
       } catch {
         return 'Error';
       }
-    })
+    });
   };
 
   return (
     <Key xs={6} onClick={onClick} label={label}/>
-  )
-}
+  );
+};

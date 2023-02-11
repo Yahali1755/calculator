@@ -9,15 +9,14 @@ import { EqualsKey } from './keys/equalsKey';
 
 const useStyles = makeStyles({
   appContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     height: '100vh',
-    fontFamily: 'system-ui'
+    fontFamily: 'system-ui',
+    backgroundColor: '#404040'
   },
   calculatorContainer: {
     display: 'grid',
     gridTemplateRows: '30%',
+    margin: 'auto',
     height: '50%',
     minWidth: '200px',
     minHeight: '300px'

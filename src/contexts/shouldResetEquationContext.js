@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 
-const ShouldResetEquationContext = React.createContext()
-const SetShouldResetEquationContext = React.createContext()
+const ShouldResetEquationContext = React.createContext();
+const SetShouldResetEquationContext = React.createContext();
 
 export const useShouldResetEquation = () => useContext(ShouldResetEquationContext);
 export const useSetShouldResetEquation = () => useContext(SetShouldResetEquationContext);
@@ -15,5 +15,5 @@ export const ShouldResetEquationProvider = ({ children }) => {
                 {children}
             </SetShouldResetEquationContext.Provider>
         </ShouldResetEquationContext.Provider>
-    )
-}
+    );
+};

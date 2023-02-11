@@ -14,6 +14,6 @@ const App = () => {
       </EquationProvider>
     </StyledEngineProvider>
   );
-}
+};
 
 export default App;

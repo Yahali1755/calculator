@@ -1,4 +1,4 @@
-import { Grid, Button } from '@mui/material'
+import { Grid, Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -23,5 +23,5 @@ export const Key  = ({ label, xs, onClick }) => {
     <Grid item xs={xs ? xs : 3}>
         <Button onClick={onClick} className={classes.calculatorKey}> {label} </Button>
     </Grid>
-  )
+  );
 }

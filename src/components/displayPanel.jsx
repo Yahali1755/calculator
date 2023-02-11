@@ -1,5 +1,6 @@
 import { Input } from '@mui/material'
 import { makeStyles } from '@mui/styles';
+
 import { useEquation } from '../contexts/equationContext';
 
 const useStyles = makeStyles({
@@ -8,6 +9,7 @@ const useStyles = makeStyles({
         textAlign: 'center',
     },
     displayPanel: {
+      backgroundColor: 'white',
       border: '1px solid black',
       height: '100%',
       width: '100%',
