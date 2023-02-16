@@ -13,7 +13,7 @@ export const EqualsKey = ({ label }) => {
         return equation;
       };
 
-      setShouldResetEquation();
+      setShouldResetEquation(true);
 
       try {
         // eslint-disable-next-line
