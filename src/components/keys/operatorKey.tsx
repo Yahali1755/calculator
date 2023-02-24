@@ -1,10 +1,12 @@
-import { Key } from './Key'
+import { FC } from 'react';
+
+import { Key, keyProps } from './Key'
 import { isMinusKey } from '../../utils/operatorUtil';
 import { useSetEquation } from '../../contexts/equationContext';
 import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 import { defaultEquationValue, isResultError, adjustEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/equationUtil';
 
-export const OperatorKey = ({ label }) => {
+export const OperatorKey: FC<keyProps> = ({ label }) => {
   const setEquation = useSetEquation();
   const shouldResetEquation = useShouldResetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();

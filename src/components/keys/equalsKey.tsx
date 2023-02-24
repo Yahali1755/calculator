@@ -1,14 +1,16 @@
-import { Key } from './Key';
+import { FC } from 'react';
+
+import { Key, keyProps} from './Key';
 import { useSetEquation } from '../../contexts/equationContext';
 import { useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 import { isResultError, isLastKeyAnOperator } from '../../utils/equationUtil';
 
-export const EqualsKey = ({ label }) => {
+export const EqualsKey: FC<keyProps> = ({ label }) => {
   const setEquation = useSetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();
   
-  const onClick = () => {
-    setEquation(equation => {
+  const onClick = (): string => {
+    return setEquation(equation => {
       if (isLastKeyAnOperator(equation) || isResultError(equation)) {
         return equation;
       };

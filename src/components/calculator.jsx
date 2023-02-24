@@ -6,25 +6,26 @@ import { DisplayPanel } from './displayPanel'
 import { ClearKey } from './keys/clearKey';
 import { EqualsKey } from './keys/equalsKey';
 
+const styles = {
+  appContainer: {
+    height: '100vh',
+    fontFamily: 'system-ui',
+    backgroundColor: '#404040'
+  },  
+  calculatorContainer: { 
+    display: 'grid', 
+    gridTemplateRows: '30%',
+    margin: 'auto', 
+    height: '50%', 
+    minWidth: '200px',
+    minHeight: '300px'
+  }
+};
+
 export const Calculator = () => {
   return (
-    <Grid container 
-      sx={{
-        height: '100vh',
-        fontFamily: 'system-ui',
-        backgroundColor: '#404040'
-      }}
-    >
-      <Grid container item xs={2} 
-        sx={{ 
-          display: 'grid', 
-          gridTemplateRows: '30%',
-          margin: 'auto', 
-          height: '50%', 
-          minWidth: '200px',
-          minHeight: '300px'
-        }}
-      >
+    <Grid container sx={styles.appContainer}>
+      <Grid container item xs={2} sx={styles.calculatorContainer}>
         <Grid item>
           <DisplayPanel/>
         </Grid>

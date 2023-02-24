@@ -1,14 +1,16 @@
-import { Key } from './Key'
+import { FC } from 'react';
+
+import { Key, keyProps } from './Key'
 import { useSetEquation } from '../../contexts/equationContext';
 import { isEquationCleared } from '../../utils/equationUtil';
 import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 
-export const OperandKey = ({ label }) => {
+export const OperandKey: FC<keyProps> = ({ label }) => {
   const setEquation = useSetEquation();
   const shouldResetEquation = useShouldResetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();
   
-  const onClick = () => setEquation(currentEquation => {
+  const onClick = (): string => setEquation(currentEquation => {
     if (shouldResetEquation) {
       setShouldResetEquation(false);
 
