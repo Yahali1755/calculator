@@ -1,6 +1,6 @@
-export const isMinusKey = key => key === '-';
+export const isMinusKey = (key: string): boolean => key === '-';
 
-export const operationDictionary = (firstNumber, secondNumber) => ({
+export const operationDictionary = (firstNumber: number, secondNumber: number) => ({
     '+': () => firstNumber + secondNumber,
     '-': () => firstNumber - secondNumber,
     '*': () => firstNumber * secondNumber,

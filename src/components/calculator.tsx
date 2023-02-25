@@ -1,4 +1,5 @@
 import { Grid } from '@mui/material'
+import { FC } from 'react';
 
 import { OperandKey } from './keys/operandKey';
 import { OperatorKey } from './keys/operatorKey';
@@ -22,7 +23,7 @@ const styles = {
   }
 };
 
-export const Calculator = () => {
+export const Calculator: FC = () => {
   return (
     <Grid container sx={styles.appContainer}>
       <Grid container item xs={2} sx={styles.calculatorContainer}>

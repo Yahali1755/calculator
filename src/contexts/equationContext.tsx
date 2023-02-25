@@ -1,18 +1,18 @@
-import { useContext, useState, FC, ReactChildren, createContext, SetStateAction, Dispatch } from 'react'
+import { useContext, useState, FC, createContext, SetStateAction, Dispatch, ReactNode } from 'react'
 
 import { defaultEquationValue } from '../utils/equationUtil';
 
 const EquationContext = createContext(defaultEquationValue);
-const SetEquationContext = createContext(undefined);
+const SetEquationContext = createContext<Dispatch<SetStateAction<string>>>(undefined);
 
 export const useEquation = () => useContext<string>(EquationContext);
 export const useSetEquation = () => useContext<Dispatch<SetStateAction<string>>>(SetEquationContext);
 
-interface equationProviderProps {
-    children: ReactChildren
+interface EquationProviderProps {
+    children: ReactNode
 }
 
-export const EquationProvider: FC<equationProviderProps> = ({ children }) => {
+export const EquationProvider: FC<EquationProviderProps> = ({ children }) => {
     const [equation, setEquation] = useState<string>(defaultEquationValue);
     
     return (

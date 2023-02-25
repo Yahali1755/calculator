@@ -1,11 +1,15 @@
 import { Grid, Button } from '@mui/material';
 import { FC } from 'react';
 
-export interface keyProps {
+export interface BaseKeyProps {
+  label: string
+}
+
+interface KeyProps extends BaseKeyProps {
   label: string,
   xs?: number,
-  onClick?: () => string
-}
+  onClick: () => void
+};
 
 const styles = {
   button: {
@@ -18,13 +22,14 @@ const styles = {
     width: '100%',
     height: '100%',
     fontSize: '25px',
-    minWidth: 0
+    minWidth: 0,
+    overflow: 'hidden'
   }
 }
 
-export const Key: FC<keyProps> = ({ label, xs, onClick }) => {
+export const Key: FC<KeyProps> = ({ label, xs, onClick }) => {
   return (
-    <Grid item xs={xs ? xs : 3}>
+    <Grid item xs={xs ?? 3}>
       <Button onClick={onClick} sx={styles.button}> { label } </Button>
     </Grid>
   );
