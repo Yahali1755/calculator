@@ -14,7 +14,7 @@ interface KeyProps extends BaseKeyProps {
 const styles = {
   button: {
     '&:hover': {
-      backgroundColor: '#E0E0E0',
+      backgroundColor: '#E0E0E0'
     },
     color: 'black',
     borderRadius: 0,
@@ -22,15 +22,11 @@ const styles = {
     width: '100%',
     height: '100%',
     fontSize: '25px',
-    minWidth: 0,
-    overflow: 'hidden'
+    minWidth: 0
   }
 }
 
-export const Key: FC<KeyProps> = ({ label, xs, onClick }) => {
-  return (
-    <Grid item xs={xs ?? 3}>
-      <Button onClick={onClick} sx={styles.button}> { label } </Button>
-    </Grid>
-  );
-}
+export const Key: FC<KeyProps> = ({ label, xs, onClick }) => 
+  <Grid item xs={xs ?? 3}>
+    <Button onClick={onClick} sx={styles.button}> { label } </Button>
+  </Grid>

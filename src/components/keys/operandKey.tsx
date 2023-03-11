@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps } from './Key'
+import { Key, BaseKeyProps } from './key'
 import { useSetEquation } from '../../contexts/equationContext';
 import { isEquationCleared } from '../../utils/equationUtil';
 import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/shouldResetEquationContext';

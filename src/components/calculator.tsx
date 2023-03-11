@@ -23,34 +23,31 @@ const styles = {
   }
 };
 
-export const Calculator: FC = () => {
-  return (
-    <Grid container sx={styles.appContainer}>
-      <Grid container item xs={2} sx={styles.calculatorContainer}>
-        <Grid item>
-          <DisplayPanel/>
-        </Grid>
-        <Grid container item>
-          <ClearKey label={'C'}/>
-          <OperatorKey label={'%'}/>
-          <OperatorKey label={'+'}/>
-          <OperandKey label={'1'}/>
-          <OperandKey label={'2'}/>
-          <OperandKey label={'3'}/>
-          <OperatorKey label={'/'}/>
-          <OperandKey label={'4'}/>
-          <OperandKey label={'5'}/>
-          <OperandKey label={'6'}/>
-          <OperatorKey label={'*'}/>
-          <OperandKey label={'7'}/>
-          <OperandKey label={'8'}/>
-          <OperandKey label={'9'}/>
-          <OperatorKey label={'-'}/>
-          <OperandKey label={'.'}/>
-          <OperandKey label={'0'}/>
-          <EqualsKey label={"="}/>
-        </Grid>
+export const Calculator: FC = () => 
+  <Grid container sx={styles.appContainer}>
+    <Grid container item xs={2} sx={styles.calculatorContainer}>
+      <Grid item>
+        <DisplayPanel/>
+      </Grid>
+      <Grid container item>
+        <ClearKey label={'C'}/>
+        <OperatorKey label={'%'}/>
+        <OperatorKey label={'+'}/>
+        <OperandKey label={'1'}/>
+        <OperandKey label={'2'}/>
+        <OperandKey label={'3'}/>
+        <OperatorKey label={'/'}/>
+        <OperandKey label={'4'}/>
+        <OperandKey label={'5'}/>
+        <OperandKey label={'6'}/>
+        <OperatorKey label={'*'}/>
+        <OperandKey label={'7'}/>
+        <OperandKey label={'8'}/>
+        <OperandKey label={'9'}/>
+        <OperatorKey label={'-'}/>
+        <OperandKey label={'.'}/>
+        <OperandKey label={'0'}/>
+        <EqualsKey label={"="}/>
       </Grid>
     </Grid>
-  );
-}
+  </Grid>
