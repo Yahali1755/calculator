@@ -17,7 +17,7 @@ const styles = {
     display: 'grid', 
     gridTemplateRows: '30%',
     margin: 'auto', 
-    height: '50%', 
+    height: '60%', 
     minWidth: '200px',
     minHeight: '300px'
   }
@@ -25,7 +25,7 @@ const styles = {
 
 export const Calculator: FC = () => 
   <Grid container sx={styles.appContainer}>
-    <Grid container item xs={2} sx={styles.calculatorContainer}>
+    <Grid container item xs={3} sx={styles.calculatorContainer}>
       <Grid item>
         <DisplayPanel/>
       </Grid>

@@ -21,7 +21,7 @@ const styles = {
     backgroundColor: 'lightgrey',
     width: '100%',
     height: '100%',
-    fontSize: '25px',
+    fontSize: '35px',
     minWidth: 0
   }
 }

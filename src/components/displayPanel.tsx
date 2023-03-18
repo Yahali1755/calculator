@@ -5,7 +5,7 @@ import { useEquation } from '../contexts/equationContext';
 
 const styles = {
   inputProps: { 
-    fontSize: '25px', 
+    fontSize: '35px', 
     textAlign: 'center' as const
   },
   DisplayPanelProps: {

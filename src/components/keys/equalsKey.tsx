@@ -4,6 +4,7 @@ import { Key, BaseKeyProps} from './key';
 import { useSetEquation } from '../../contexts/equationContext';
 import { useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 import { isResultError, isLastKeyAnOperator } from '../../utils/equationUtil';
+import { evaluate } from 'mathjs';
 
 export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
   const setEquation = useSetEquation();
@@ -18,8 +19,7 @@ export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
       setShouldResetEquation(true);
 
       try {
-        // eslint-disable-next-line
-        const result = eval(currentEquation);
+        const result = evaluate(currentEquation);
 
         const roundedResult = Math.round(result * 1000) / 1000;
 
