@@ -1,1 +1,3 @@
-export const isMinusKey = (key: string) => key === '-';
+export const isOperandMinusKey = (key: string) => key === '-';
+
+export const isOperandDotKey = (key: string) => key === '.';

@@ -1,23 +1,28 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps } from './key'
+import { Key, BaseKeyProps } from './Key'
 import { useSetEquation } from '../../contexts/equationContext';
-import { isLastKeyZero, sliceLastKeyFromEquation } from '../../utils/equationUtil';
+import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../../utils/equationUtil';
 import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/shouldResetEquationContext';
+import { isOperandDotKey } from '../../utils/operatorUtil';
 
 export const OperandKey: FC<BaseKeyProps> = ({ label }) => {
   const setEquation = useSetEquation();
   const shouldResetEquation = useShouldResetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();
   
-  const onClick = () => setEquation(currentEquation => {
+  const appendOperand = () => setEquation(currentEquation => {
     if (shouldResetEquation) {
       setShouldResetEquation(false);
 
       return label;
     };
 
-    if (isLastKeyZero(currentEquation)) {
+    if(doesLastEquationOperandContainDot(currentEquation) && isOperandDotKey(label)) {
+      return currentEquation;
+    } 
+
+    if (isLastOperandZero(currentEquation) && !isOperandDotKey(label)) {
       return sliceLastKeyFromEquation(currentEquation).concat(label);
     };
 
@@ -25,6 +30,6 @@ export const OperandKey: FC<BaseKeyProps> = ({ label }) => {
   });
 
   return (
-    <Key onClick={onClick} label={label}/>
+    <Key onClick={appendOperand} label={label}/>
   );
 };

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps} from './key';
+import { Key, BaseKeyProps} from './Key';
 import { useSetEquation } from '../../contexts/equationContext';
 import { useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
 import { isResultError, isLastKeyAnOperator } from '../../utils/equationUtil';
@@ -10,7 +10,7 @@ export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
   const setEquation = useSetEquation();
   const setShouldResetEquation = useSetShouldResetEquation();
   
-  const onClick = () => 
+  const calculate = () => 
     setEquation(currentEquation => {
       if (isLastKeyAnOperator(currentEquation) || isResultError(currentEquation)) {
         return currentEquation;
@@ -30,6 +30,6 @@ export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
     });
 
   return (
-    <Key xs={6} onClick={onClick} label={label}/>
+    <Key xs={6} onClick={calculate} label={label}/>
   );
 };

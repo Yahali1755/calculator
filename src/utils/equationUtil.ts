@@ -1,19 +1,21 @@
-import { isMinusKey } from './operatorUtil';
+import { isOperandMinusKey } from './operatorUtil';
 
 export const defaultEquationValue = '0';
 
 export const isLastKeyAnOperator = (equation: string) => equation && equation.slice(-1) === ' ';
 
-export const isLastKeyZero = (equation: string) => equation.split(' ')[equation.length - 1] === '0';
+export const isLastOperandZero = (equation: string) => equation.split(' ').pop() === '0';
+
+export const doesLastEquationOperandContainDot = (equation: string) => equation.split(' ').pop().includes('.');
 
 export const isResultError = (equation: string) => equation === 'Error';
 
 export const sliceLastKeyFromEquation = (equation: string) => equation.substring(0, equation.length - 1);
 
 export const adjustEquationOnMinusKeyClick = (equation: string, label: string): string => {
-    const isLastKeyInEquationMinus = (equation: string) => isMinusKey(equation.slice(-2)[0]) || isMinusKey(equation.slice(-1)[0]);
+    const isLastKeyInEquationMinus = (equation: string) => isOperandMinusKey(equation.slice(-2)[0]) || isOperandMinusKey(equation.slice(-1)[0]);
 
-    if (isLastKeyZero(equation)) {
+    if (isLastOperandZero(equation)) {
         return label;
     };
 
