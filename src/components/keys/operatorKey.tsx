@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps } from './Key'
+import { Key, BaseKeyProps } from './key'
 import { isOperandMinusKey } from '../../utils/operatorUtil';
-import { useSetEquation } from '../../contexts/equationContext';
-import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
-import { defaultEquationValue, isResultError, adjustEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/equationUtil';
+import { useSetEquation } from '../../contexts/displayPanelDataContext';
+import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/placeholderContext';
+import { defaultEquationValue, isResultError, handleMinusKeyClick, isLastKeyAnOperator } from '../../utils/equationUtil';
 
 export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
   const setEquation = useSetEquation();
@@ -21,7 +21,7 @@ export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
     };
 
     if (isOperandMinusKey(label)) {
-      return adjustEquationOnMinusKeyClick(currentEquation, label);
+      return handleMinusKeyClick(currentEquation, label);
     };
 
     if (isLastKeyAnOperator(currentEquation)) {

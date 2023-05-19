@@ -12,7 +12,7 @@ export const isResultError = (equation: string) => equation === 'Error';
 
 export const sliceLastKeyFromEquation = (equation: string) => equation.substring(0, equation.length - 1);
 
-export const adjustEquationOnMinusKeyClick = (equation: string, label: string): string => {
+export const handleMinusKeyClick = (equation: string, label: string): string => {
     const isLastKeyInEquationMinus = (equation: string) => isOperandMinusKey(equation.slice(-2)[0]) || isOperandMinusKey(equation.slice(-1)[0]);
 
     if (isLastOperandZero(equation)) {

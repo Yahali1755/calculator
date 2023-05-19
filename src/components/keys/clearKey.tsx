@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps } from './Key'
-import { useSetEquation } from '../../contexts/equationContext';
+import { Key, BaseKeyProps } from './key'
+import { useSetEquation } from '../../contexts/displayPanelDataContext';
 import { defaultEquationValue } from '../../utils/equationUtil';
 
 export const ClearKey: FC<BaseKeyProps> = ({ label }) => {

@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
 
 import { Calculator } from './components/calculator';
-import { EquationProvider } from './contexts/equationContext';
-import { ShouldResetEquationProvider } from './contexts/shouldResetEquationContext';
+import { EquationProvider } from './contexts/displayPanelDataContext';
+import { ShouldResetEquationProvider } from './contexts/placeholderContext';
 import './index.css'
 
 interface AppProps {

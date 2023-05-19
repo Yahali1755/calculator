@@ -1,14 +1,14 @@
 import { Input } from '@mui/material'
 import { FC } from 'react';
 
-import { useEquation } from '../contexts/equationContext';
+import { useDisplayPanelData } from '../contexts/displayPanelDataContext';
 
 const styles = {
-  inputProps: { 
+  input: { 
     fontSize: '35px', 
     textAlign: 'center' as const
   },
-  DisplayPanelProps: {
+  displayPanel: {
     backgroundColor: 'white',
     border: '1px solid black',
     height: '100%',
@@ -18,10 +18,10 @@ const styles = {
 }
 
 export const DisplayPanel: FC  = () => {
-  const equation = useEquation();
+  const {equation, result} = useDisplayPanelData();
 
   return (
-      <Input disableUnderline autoFocus onBlur={e => e.target.focus()} value={equation} 
-          inputProps={{ readOnly: true, style: styles.inputProps}} sx={styles.DisplayPanelProps}/>
+      <Input disableUnderline autoFocus onBlur={e => e.target.focus()} placeholder={result} value={equation} 
+          inputProps={{ readOnly: true, style: styles.input}} sx={styles.displayPanel}/>
   );
 };

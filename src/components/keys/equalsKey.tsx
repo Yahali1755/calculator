@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps} from './Key';
-import { useSetEquation } from '../../contexts/equationContext';
-import { useSetShouldResetEquation } from '../../contexts/shouldResetEquationContext';
+import { Key, BaseKeyProps} from './key';
+import { useSetEquation } from '../../contexts/displayPanelDataContext';
+import { useSetShouldResetEquation } from '../../contexts/placeholderContext';
 import { isResultError, isLastKeyAnOperator } from '../../utils/equationUtil';
 import { evaluate } from 'mathjs';
 

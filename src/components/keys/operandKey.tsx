@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps } from './Key'
-import { useSetEquation } from '../../contexts/equationContext';
+import { Key, BaseKeyProps } from './key'
+import { useSetEquation } from '../../contexts/displayPanelDataContext';
 import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../../utils/equationUtil';
-import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/shouldResetEquationContext';
+import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/placeholderContext';
 import { isOperandDotKey } from '../../utils/operatorUtil';
 
 export const OperandKey: FC<BaseKeyProps> = ({ label }) => {

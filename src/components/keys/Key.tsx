@@ -12,7 +12,7 @@ interface KeyProps extends BaseKeyProps {
 };
 
 const styles = {
-  button: {
+  key: {
     '&:hover': {
       backgroundColor: '#E0E0E0'
     },
@@ -28,5 +28,5 @@ const styles = {
 
 export const Key: FC<KeyProps> = ({ label, xs, onClick }) => 
   <Grid item xs={xs ?? 3}>
-    <Button onClick={onClick} sx={styles.button}> { label } </Button>
+    <Button onClick={onClick} sx={styles.key}> { label } </Button>
   </Grid>
