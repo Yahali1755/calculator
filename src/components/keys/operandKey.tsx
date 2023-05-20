@@ -1,32 +1,23 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps } from './key'
-import { useSetEquation } from '../../contexts/displayPanelDataContext';
+import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
 import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../../utils/equationUtil';
-import { useSetShouldResetEquation, useShouldResetEquation } from '../../contexts/placeholderContext';
 import { isOperandDotKey } from '../../utils/operatorUtil';
 
 export const OperandKey: FC<BaseKeyProps> = ({ label }) => {
-  const setEquation = useSetEquation();
-  const shouldResetEquation = useShouldResetEquation();
-  const setShouldResetEquation = useSetShouldResetEquation();
+  const setDisplayPanelData = useSetDisplayPanelData();
   
-  const appendOperand = () => setEquation(currentEquation => {
-    if (shouldResetEquation) {
-      setShouldResetEquation(false);
-
-      return label;
-    };
-
-    if(doesLastEquationOperandContainDot(currentEquation) && isOperandDotKey(label)) {
-      return currentEquation;
+  const appendOperand = () => setDisplayPanelData(({ equation }) => {
+    if(doesLastEquationOperandContainDot(equation) && isOperandDotKey(label)) {
+      return {equation, result: ""};
     } 
 
-    if (isLastOperandZero(currentEquation) && !isOperandDotKey(label)) {
-      return sliceLastKeyFromEquation(currentEquation).concat(label);
+    if (isLastOperandZero(equation) && !isOperandDotKey(label)) {
+      return {equation: sliceLastKeyFromEquation(equation).concat(label), result: ""};
     };
 
-    return currentEquation.concat(label);
+    return {equation: equation.concat(label), result: ""};
   });
 
   return (

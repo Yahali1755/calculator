@@ -2,33 +2,26 @@ import { FC } from 'react';
 
 import { Key, BaseKeyProps } from './key'
 import { isOperandMinusKey } from '../../utils/operatorUtil';
-import { useSetEquation } from '../../contexts/displayPanelDataContext';
-import { useShouldResetEquation, useSetShouldResetEquation } from '../../contexts/placeholderContext';
-import { defaultEquationValue, isResultError, handleMinusKeyClick, isLastKeyAnOperator } from '../../utils/equationUtil';
+import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
+import { getAdjustedEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/equationUtil';
 
 export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
-  const setEquation = useSetEquation();
-  const shouldResetEquation = useShouldResetEquation();
-  const setShouldResetEquation = useSetShouldResetEquation();
+  const setDisplayPanelData = useSetDisplayPanelData();
 
-  const appendOperator = () => setEquation(currentEquation => {
-    if (shouldResetEquation) {
-      setShouldResetEquation(false);
-
-      if (isResultError(currentEquation)) {
-        return `${defaultEquationValue} ${label} `; 
-      };
-    };
-
+  const appendOperator = () => setDisplayPanelData(({ equation, result }) => {
+    if (result !== "") {
+      return {equation: result.concat(` ${label} `), result: ""};
+    }
+    
     if (isOperandMinusKey(label)) {
-      return handleMinusKeyClick(currentEquation, label);
+      return {equation: getAdjustedEquationOnMinusKeyClick(equation, label), result: ""};
     };
 
-    if (isLastKeyAnOperator(currentEquation)) {
-      return currentEquation;
+    if (isLastKeyAnOperator(equation)) {
+      return {equation, result: ""};
     };
 
-    return currentEquation.concat(` ${label} `);
+    return {equation: equation.concat(` ${label} `), result: ""};
   });
 
   return (

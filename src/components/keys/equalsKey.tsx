@@ -1,35 +1,33 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps} from './key';
-import { useSetEquation } from '../../contexts/displayPanelDataContext';
-import { useSetShouldResetEquation } from '../../contexts/placeholderContext';
-import { isResultError, isLastKeyAnOperator } from '../../utils/equationUtil';
+import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
+import { isLastKeyAnOperator } from '../../utils/equationUtil';
 import { evaluate } from 'mathjs';
 
 export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
-  const setEquation = useSetEquation();
-  const setShouldResetEquation = useSetShouldResetEquation();
+  const setDisplayPanelData = useSetDisplayPanelData();
   
   const calculate = () => 
-    setEquation(currentEquation => {
-      if (isLastKeyAnOperator(currentEquation) || isResultError(currentEquation)) {
-        return currentEquation;
+    setDisplayPanelData(({equation, result }) => {
+      if (isLastKeyAnOperator(equation)) {
+        return {equation, result: ""};
       };
 
-      setShouldResetEquation(true);
+      if (equation === "") {
+        return {equation: "", result}
+      }
 
       try {
-        const result = evaluate(currentEquation);
+        const roundedResult = Math.round(evaluate(equation) * 1000) / 1000;
 
-        const roundedResult = Math.round(result * 1000) / 1000;
-
-        return roundedResult.toString();
+        return {equation: "", result: roundedResult.toString()};
       } catch {
-        return 'Error';
+        return {equation: "", result: "Error"};
       }
     });
 
   return (
-    <Key xs={6} onClick={calculate} label={label}/>
+    <Key onClick={calculate} label={label}/>
   );
 };

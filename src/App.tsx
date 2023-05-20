@@ -1,8 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 import { Calculator } from './components/calculator';
-import { EquationProvider } from './contexts/displayPanelDataContext';
-import { ShouldResetEquationProvider } from './contexts/placeholderContext';
+import { DisplayPanelDataProvider  } from './contexts/displayPanelDataContext';
 import './index.css'
 
 interface AppProps {
@@ -10,10 +9,8 @@ interface AppProps {
 }
 
 const App: FC<AppProps> = () => 
-    <EquationProvider>
-      <ShouldResetEquationProvider>
+    <DisplayPanelDataProvider>
         <Calculator/>
-      </ShouldResetEquationProvider>
-    </EquationProvider>
+    </DisplayPanelDataProvider>
 
 export default App;

@@ -1,15 +1,15 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps } from './key'
-import { useSetEquation } from '../../contexts/displayPanelDataContext';
 import { defaultEquationValue } from '../../utils/equationUtil';
+import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
 
 export const ClearKey: FC<BaseKeyProps> = ({ label }) => {
-    const setEquation = useSetEquation();
+    const setDisplayPanelData = useSetDisplayPanelData();
 
-    const clearEquation = () => setEquation(defaultEquationValue);
+    const clearEquation = () => setDisplayPanelData({result: defaultEquationValue, equation: ""});
 
     return (
-        <Key xs={6} onClick={clearEquation} label={label}/>
+        <Key onClick={clearEquation} label={label}/>
     );
 };

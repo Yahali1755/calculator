@@ -23,6 +23,9 @@ const styles = {
   }
 };
 
+const operators = ['%', '+', '/', '*', '-'];
+const operands = ['.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
 export const Calculator: FC = () => 
   <Grid container sx={styles.appContainer}>
     <Grid container item xs={3} sx={styles.calculatorContainer}>
@@ -31,22 +34,8 @@ export const Calculator: FC = () =>
       </Grid>
       <Grid container item>
         <ClearKey label={'C'}/>
-        <OperatorKey label={'%'}/>
-        <OperatorKey label={'+'}/>
-        <OperandKey label={'1'}/>
-        <OperandKey label={'2'}/>
-        <OperandKey label={'3'}/>
-        <OperatorKey label={'/'}/>
-        <OperandKey label={'4'}/>
-        <OperandKey label={'5'}/>
-        <OperandKey label={'6'}/>
-        <OperatorKey label={'*'}/>
-        <OperandKey label={'7'}/>
-        <OperandKey label={'8'}/>
-        <OperandKey label={'9'}/>
-        <OperatorKey label={'-'}/>
-        <OperandKey label={'.'}/>
-        <OperandKey label={'0'}/>
+        { operands.map(operand => <OperandKey label={operand}/>) }
+        { operators.map(operator => <OperatorKey label={operator}/>) }
         <EqualsKey label={"="}/>
       </Grid>
     </Grid>

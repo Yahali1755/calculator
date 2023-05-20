@@ -13,7 +13,12 @@ const styles = {
     border: '1px solid black',
     height: '100%',
     width: '100%',
-    textAlign: 'center' 
+    textAlign: 'center',
+    input: {
+      "&::placeholder": {
+         opacity: 1,
+      },
+   },
   }
 }
 
@@ -22,6 +27,6 @@ export const DisplayPanel: FC  = () => {
 
   return (
       <Input disableUnderline autoFocus onBlur={e => e.target.focus()} placeholder={result} value={equation} 
-          inputProps={{ readOnly: true, style: styles.input}} sx={styles.displayPanel}/>
+          inputProps={{ readOnly: true, style: styles.input }} sx={styles.displayPanel}/>
   );
 };

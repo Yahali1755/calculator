@@ -17,7 +17,7 @@ const SetDisplayPanelDataContext = createContext<Dispatch<SetStateAction<Display
 export const useDisplayPanelData = () => useContext<DisplayPanelDataProps>(DisplayPanelDataContext);
 export const useSetDisplayPanelData = () => useContext<Dispatch<SetStateAction<DisplayPanelDataProps>>>(SetDisplayPanelDataContext);
 
-export const EquationProvider: FC<EquationProviderProps> = ({ children }) => {
+export const DisplayPanelDataProvider: FC<EquationProviderProps> = ({ children }) => {
     const [displayPanelData, setDisplayPanelData] = useState<DisplayPanelDataProps>({equation: "", result: defaultEquationValue});
     
     return (
