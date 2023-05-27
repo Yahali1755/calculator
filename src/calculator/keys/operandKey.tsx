@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Key, BaseKeyProps } from './key'
 import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
 import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../../utils/equationUtil';
-import { isOperandDotKey } from '../../utils/operatorUtil';
+import { isOperandDotKey } from '../../utils/operandUtil';
 
 export const OperandKey: FC<BaseKeyProps> = ({ label }) => {
   const setDisplayPanelData = useSetDisplayPanelData();

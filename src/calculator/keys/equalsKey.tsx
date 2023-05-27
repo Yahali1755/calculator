@@ -19,7 +19,9 @@ export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
       }
 
       try {
-        const roundedResult = Math.round(evaluate(equation) * 1000) / 1000;
+        const result = evaluate(equation);
+
+        const roundedResult = Math.round(result * 1000) / 1000;
 
         return {equation: "", result: roundedResult.toString()};
       } catch {

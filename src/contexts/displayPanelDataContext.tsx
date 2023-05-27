@@ -1,24 +1,24 @@
 import { useContext, useState, FC, createContext, SetStateAction, Dispatch, ReactNode } from 'react'
 
-import { defaultEquationValue } from '../utils/equationUtil';
+import { Operand } from '../constants/operand';
 
 interface DisplayPanelDataProps {
     equation: string,
     result: string
 }
 
-interface EquationProviderProps {
+interface DisplayPanelDataProviderProps {
     children: ReactNode
 }
 
-const DisplayPanelDataContext = createContext({equation: "", result: defaultEquationValue});
+const DisplayPanelDataContext = createContext({equation: "", result: Operand.Zero as string});
 const SetDisplayPanelDataContext = createContext<Dispatch<SetStateAction<DisplayPanelDataProps>>>(undefined);
 
 export const useDisplayPanelData = () => useContext<DisplayPanelDataProps>(DisplayPanelDataContext);
 export const useSetDisplayPanelData = () => useContext<Dispatch<SetStateAction<DisplayPanelDataProps>>>(SetDisplayPanelDataContext);
 
-export const DisplayPanelDataProvider: FC<EquationProviderProps> = ({ children }) => {
-    const [displayPanelData, setDisplayPanelData] = useState<DisplayPanelDataProps>({equation: "", result: defaultEquationValue});
+export const DisplayPanelDataProvider: FC<DisplayPanelDataProviderProps> = ({ children }) => {
+    const [displayPanelData, setDisplayPanelData] = useState<DisplayPanelDataProps>({equation: "", result: Operand.Zero});
     
     return (
         <DisplayPanelDataContext.Provider value={displayPanelData}>

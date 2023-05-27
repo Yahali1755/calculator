@@ -6,6 +6,8 @@ import { OperatorKey } from './keys/operatorKey';
 import { DisplayPanel } from './displayPanel'
 import { ClearKey } from './keys/clearKey';
 import { EqualsKey } from './keys/equalsKey';
+import { Operand } from '../constants/operand';
+import { Operator } from '../constants/operator'
 
 const styles = {
   appContainer: {
@@ -23,8 +25,8 @@ const styles = {
   }
 };
 
-const operators = ['%', '+', '/', '*', '-'];
-const operands = ['.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+const operators = Object.values(Operator);
+const operands = Object.values(Operand);
 
 export const Calculator: FC = () => 
   <Grid container sx={styles.appContainer}>

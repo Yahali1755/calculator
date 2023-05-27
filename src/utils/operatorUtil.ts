@@ -1,3 +1,3 @@
-export const isOperandMinusKey = (key: string) => key === '-';
+import { Operator } from '../constants/operator';
 
-export const isOperandDotKey = (key: string) => key === '.';
+export const isOperatorMinusKey = (key: string) => key === Operator.Subtraction;
