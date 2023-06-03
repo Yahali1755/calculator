@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps } from './key'
-import { isOperatorMinusKey } from '../../utils/operatorUtil';
+import { isMinusKey } from '../../utils/operatorUtil';
 import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
 import { getAdjustedEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/equationUtil';
 
@@ -13,7 +13,7 @@ export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
       return {equation: result.concat(` ${label} `), result: ""};
     }
     
-    if (isOperatorMinusKey(label)) {
+    if (isMinusKey(label)) {
       return {equation: getAdjustedEquationOnMinusKeyClick(equation, label), result: ""};
     };
 

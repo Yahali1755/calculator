@@ -5,7 +5,7 @@ import { useDisplayPanelData } from '../contexts/displayPanelDataContext';
 
 const styles = {
   input: { 
-    fontSize: '35px', 
+    fontSize: '1.5vw', 
     textAlign: 'center' as const
   },
   displayPanel: {

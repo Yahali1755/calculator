@@ -1,5 +1,5 @@
 import { Operand } from '../constants/operand';
-import { isOperatorMinusKey } from './operatorUtil';
+import { isMinusKey } from './operatorUtil';
 
 export const isLastKeyAnOperator = (equation: string) => equation && equation.slice(-1) === ' ';
 
@@ -10,7 +10,7 @@ export const doesLastEquationOperandContainDot = (equation: string) => equation.
 export const sliceLastKeyFromEquation = (equation: string) => equation.substring(0, equation.length - 1);
 
 export const getAdjustedEquationOnMinusKeyClick = (equation: string, label: string): string => {
-    const isLastKeyInEquationMinus = (equation: string) => isOperatorMinusKey(equation.slice(-2)[0]) || isOperatorMinusKey(equation.slice(-1)[0]);
+    const isLastKeyInEquationMinus = (equation: string) => isMinusKey(equation.slice(-2)[0]) || isMinusKey(equation.slice(-1)[0]);
 
     if (isLastOperandZero(equation)) {
         return label;
