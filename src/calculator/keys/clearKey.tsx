@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps } from './key'
-import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
+import { useSetCalculatorData } from '../../contexts/calculatorDataContext';
 import { Operand } from '../../constants/operand';
 
 export const ClearKey: FC<BaseKeyProps> = ({ label }) => {
-    const setDisplayPanelData = useSetDisplayPanelData();
+    const setCalculatorData = useSetCalculatorData();
 
-    const clearEquation = () => setDisplayPanelData({result: Operand.Zero, equation: ""});
+    const clearEquation = () => setCalculatorData({result: Operand.Zero, equation: ""});
 
     return (
         <Key onClick={clearEquation} label={label}/>

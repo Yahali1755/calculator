@@ -1,7 +1,7 @@
 import { Input } from '@mui/material'
 import { FC } from 'react';
 
-import { useDisplayPanelData } from '../contexts/displayPanelDataContext';
+import { useCalculatorData } from '../contexts/calculatorDataContext';
 
 const styles = {
   input: { 
@@ -23,7 +23,7 @@ const styles = {
 }
 
 export const DisplayPanel: FC  = () => {
-  const {equation, result} = useDisplayPanelData();
+  const {equation, result} = useCalculatorData();
 
   return (
       <Input disableUnderline autoFocus onBlur={e => e.target.focus()} placeholder={result} value={equation} 

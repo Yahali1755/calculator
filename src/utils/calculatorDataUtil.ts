@@ -9,6 +9,10 @@ export const doesLastEquationOperandContainDot = (equation: string) => equation.
 
 export const sliceLastKeyFromEquation = (equation: string) => equation.substring(0, equation.length - 1);
 
+export const isEquationEmpty = (equation: string) => equation === "";
+
+export const isResultEmpty = (result: string) => result === "";
+
 export const getAdjustedEquationOnMinusKeyClick = (equation: string, label: string): string => {
     const isLastKeyInEquationMinus = (equation: string) => isMinusKey(equation.slice(-2)[0]) || isMinusKey(equation.slice(-1)[0]);
 

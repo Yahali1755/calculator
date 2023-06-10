@@ -25,9 +25,6 @@ const styles = {
   }
 };
 
-const operators = Object.values(Operator);
-const operands = Object.values(Operand);
-
 export const Calculator: FC = () => 
   <Grid container sx={styles.appContainer}>
     <Grid container item xs={3} sx={styles.calculatorContainer}>
@@ -36,8 +33,8 @@ export const Calculator: FC = () =>
       </Grid>
       <Grid container item>
         <ClearKey label={'C'}/>
-        { operands.map(operand => <OperandKey label={operand}/>) }
-        { operators.map(operator => <OperatorKey label={operator}/>) }
+        { Object.values(Operand).map(operand => <OperandKey label={operand}/>) }
+        { Object.values(Operator).map(operator => <OperatorKey label={operator}/>) }
         <EqualsKey label={"="}/>
       </Grid>
     </Grid>

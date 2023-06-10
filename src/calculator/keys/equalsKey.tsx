@@ -1,29 +1,29 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps} from './key';
-import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
-import { isLastKeyAnOperator } from '../../utils/equationUtil';
+import { useSetCalculatorData } from '../../contexts/calculatorDataContext';
+import { isEquationEmpty, isLastKeyAnOperator } from '../../utils/calculatorDataUtil';
 import { evaluate } from 'mathjs';
 
 export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
-  const setDisplayPanelData = useSetDisplayPanelData();
+  const setCalculatorData = useSetCalculatorData();
   
   const calculate = () => 
-    setDisplayPanelData(({equation, result }) => {
+    setCalculatorData(({equation, result }) => {
       if (isLastKeyAnOperator(equation)) {
         return {equation, result: ""};
       };
 
-      if (equation === "") {
+      if (isEquationEmpty(equation)) {
         return {equation: "", result}
       }
 
       try {
-        const result = evaluate(equation);
+        const newResult = evaluate(equation);
 
-        const roundedResult = Math.round(result * 1000) / 1000;
+        const roundedNewResult = Math.round(newResult * 1000) / 1000;
 
-        return {equation: "", result: roundedResult.toString()};
+        return {equation: "", result: roundedNewResult.toString()};
       } catch {
         return {equation: "", result: "Error"};
       }

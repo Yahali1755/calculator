@@ -1,14 +1,14 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps } from './key'
-import { useSetDisplayPanelData } from '../../contexts/displayPanelDataContext';
-import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../../utils/equationUtil';
+import { useSetCalculatorData } from '../../contexts/calculatorDataContext';
+import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../../utils/calculatorDataUtil';
 import { isDotKey } from '../../utils/operandUtil';
 
 export const OperandKey: FC<BaseKeyProps> = ({ label }) => {
-  const setDisplayPanelData = useSetDisplayPanelData();
+  const setCalculatorData = useSetCalculatorData();
   
-  const appendOperand = () => setDisplayPanelData(({ equation }) => {
+  const appendOperand = () => setCalculatorData(({ equation }) => {
     if(doesLastEquationOperandContainDot(equation) && isDotKey(label)) {
       return {equation, result: ""};
     } 
