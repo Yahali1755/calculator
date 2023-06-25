@@ -8,26 +8,22 @@ module.exports = {
     path: path.resolve(__dirname, './build'),
   },
   devServer: {
-    port: '5000',
-    hot: true,
-    liveReload: true
+    port: '5000'
   },
+  target: 'node',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/, 
-        use: 'babel-loader', 
-        exclude: /node_modules/
+        use: 'babel-loader'
       },
       {
         test: /\.(ts|tsx)$/,
-        use: ["ts-loader"],
-        exclude: /node_modules/
+        use: ["ts-loader"]
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-        exclude: /node_modules/
+        use: ["style-loader", "css-loader"]
       }
     ]
   },

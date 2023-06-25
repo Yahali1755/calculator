@@ -23,7 +23,7 @@ export const CalculatorDataProvider: FC<CalculatorDataProviderProps> = ({ childr
     return (
         <CalculatorDataContext.Provider value={calculatorData}>
             <SetCalculatorDataContext.Provider value={setCalculatorData}>
-                {children}
+                { children }
             </SetCalculatorDataContext.Provider>
         </CalculatorDataContext.Provider>
     );

@@ -6,7 +6,6 @@ export interface BaseKeyProps {
 }
 
 interface KeyProps extends BaseKeyProps {
-  label: string,
   xs?: number,
   onClick: () => void
 };
