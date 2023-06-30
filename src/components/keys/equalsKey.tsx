@@ -7,7 +7,7 @@ import { evaluate } from 'mathjs';
 
 const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
   const setCalculatorData = useSetCalculatorData();
-
+  
   const calculate = () => 
     setCalculatorData(({ equation, result }) => {
       if (isLastKeyAnOperator(equation)) {

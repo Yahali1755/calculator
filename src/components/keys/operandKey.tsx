@@ -10,7 +10,8 @@ const isDotKey = (key: string) => key === Operand.Dot;
 const OperandKey: FC<BaseKeyProps> = ({ label }) => {
   const setCalculatorData = useSetCalculatorData();
   
-  const appendOperand = () => setCalculatorData(({ equation }) => {
+  const appendOperand = () => {
+    setCalculatorData(({ equation }) => {
     if(doesLastEquationOperandContainDot(equation) && isDotKey(label)) {
       return {equation, result: ""};
     } 
@@ -21,6 +22,7 @@ const OperandKey: FC<BaseKeyProps> = ({ label }) => {
 
     return {equation: equation.concat(label), result: ""};
   });
+}
 
   return (
     <Key onClick={appendOperand} label={label}/>
