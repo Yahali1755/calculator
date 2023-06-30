@@ -10,7 +10,6 @@ module.exports = {
   devServer: {
     port: '5000'
   },
-  target: 'node',
   module: {
     rules: [
       {

@@ -1,4 +1,5 @@
 import { Operand } from '../constants/operand';
+import { Operator } from '../constants/operator';
 import { isMinusKey } from './operatorUtil';
 
 export const isLastKeyAnOperator = (equation: string) => equation && equation.slice(-1) === ' ';
@@ -13,11 +14,12 @@ export const isEquationEmpty = (equation: string) => equation === "";
 
 export const isResultEmpty = (result: string) => result === "";
 
-export const getAdjustedEquationOnMinusKeyClick = (equation: string, label: string): string => {
+//TODO: Remove lable==el and move to minus comonent
+export const getAdjustedEquationOnMinusKeyClick = (equation: string): string => {
     const isLastKeyInEquationMinus = (equation: string) => isMinusKey(equation.slice(-2)[0]) || isMinusKey(equation.slice(-1)[0]);
 
     if (isLastOperandZero(equation)) {
-        return label;
+        return Operator.Subtraction;
     };
 
     if (isLastKeyInEquationMinus(equation)) {
@@ -25,8 +27,8 @@ export const getAdjustedEquationOnMinusKeyClick = (equation: string, label: stri
     };
 
     if (isLastKeyAnOperator(equation)) {
-        return equation.concat(` ${label}`);
+        return equation.concat(` ${Operator.Subtraction}`);
     };
 
-    return equation.concat(` ${label} `);
+    return equation.concat(` ${Operator.Subtraction} `);
 };

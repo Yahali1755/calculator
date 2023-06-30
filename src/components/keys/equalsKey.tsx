@@ -1,15 +1,15 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps} from './key';
+import Key, { BaseKeyProps} from './key';
 import { useSetCalculatorData } from '../../contexts/calculatorDataContext';
 import { isEquationEmpty, isLastKeyAnOperator } from '../../utils/calculatorDataUtil';
 import { evaluate } from 'mathjs';
 
-export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
+const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
   const setCalculatorData = useSetCalculatorData();
-  
+
   const calculate = () => 
-    setCalculatorData(({equation, result }) => {
+    setCalculatorData(({ equation, result }) => {
       if (isLastKeyAnOperator(equation)) {
         return {equation, result: ""};
       };
@@ -33,3 +33,5 @@ export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
     <Key onClick={calculate} label={label}/>
   );
 };
+
+export default EqualsKey;
