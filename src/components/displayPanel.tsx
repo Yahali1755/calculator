@@ -11,8 +11,8 @@ const styles = {
   displayPanel: {
     backgroundColor: 'white',
     border: '1px solid black',
-    height: '100%',
-    width: '100%',
+    height: 1,
+    width: 1,
     textAlign: 'center',
     input: {
       "&::placeholder": {
@@ -22,11 +22,13 @@ const styles = {
   }
 }
 
-export const DisplayPanel: FC  = () => {
+const DisplayPanel: FC  = () => {
   const {equation, result} = useCalculatorData();
 
   return (
-      <Input disableUnderline autoFocus onBlur={e => e.target.focus()} placeholder={result} value={equation} 
-          inputProps={{ readOnly: true, style: styles.input }} sx={styles.displayPanel}/>
+      <Input readOnly disableUnderline autoFocus onBlur={e => e.target.focus()} placeholder={result} value={equation} 
+          inputProps={{ style: styles.input }} sx={styles.displayPanel}/>
   );
 };
+
+export default DisplayPanel;

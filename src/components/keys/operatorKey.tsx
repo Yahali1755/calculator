@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { Key, BaseKeyProps } from './key'
+import Key, { BaseKeyProps} from './key';
 import { isMinusKey } from '../../utils/operatorUtil';
 import { useSetCalculatorData } from '../../contexts/calculatorDataContext';
 import { getAdjustedEquationOnMinusKeyClick, isLastKeyAnOperator } from '../../utils/calculatorDataUtil';
 import { isResultEmpty } from '../../utils/calculatorDataUtil';
 
-export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
+const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
   const setCalculatorData = useSetCalculatorData();
 
   const appendOperator = () => setCalculatorData(({ equation, result }) => {
@@ -29,3 +29,5 @@ export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
     <Key onClick={appendOperator} label={label}/>
   );
 };
+
+export default OperatorKey;
