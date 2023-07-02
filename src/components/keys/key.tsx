@@ -25,11 +25,9 @@ const styles = {
   }
 }
 
-const Key: FC<KeyProps> = ({ label, xs, onClick }) => 
-  <Grid item xs={xs ?? 4}>
+export const Key: FC<KeyProps> = ({ label, xs, onClick }) => 
+  <Grid xs={xs ?? 4}>
     <Button onClick={onClick} sx={styles.key}> 
       { label } 
     </Button>
   </Grid>
-
-export default Key;

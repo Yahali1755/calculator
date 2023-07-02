@@ -1,13 +1,13 @@
 import { Grid } from '@mui/material'
 import { FC } from 'react';
 
-import DisplayPanel from './displayPanel'
-import ClearKey from './keys/clearKey';
-import EqualsKey from './keys/equalsKey';
+import { DisplayPanel } from './displayPanel'
+import { ClearKey } from './keys/clearKey';
+import { EqualsKey } from './keys/equalsKey';
 import { Operand } from '../constants/operand';
 import { Operator } from '../constants/operator'
-import OperandKey from './keys/operandKey';
-import OperatorKey from './keys/operatorKey';
+import { OperandKey } from './keys/operandKey';
+import { OperatorKey } from './keys/operatorKey';
 
 const styles = {
   appContainer: {
@@ -19,13 +19,13 @@ const styles = {
     display: 'grid', 
     gridTemplateRows: '30%',
     margin: 'auto', 
-    height: '60%', 
+    height: '60%',
     minWidth: '200px',
     minHeight: '300px'
   }
 };
 
-const Calculator: FC = () => 
+export const Calculator: FC = () => 
   <Grid container sx={styles.appContainer}>
     <Grid container item xs={3} sx={styles.calculatorContainer}>
       <Grid item>
@@ -39,5 +39,3 @@ const Calculator: FC = () =>
       </Grid>
     </Grid>
   </Grid>
-
-  export default Calculator;

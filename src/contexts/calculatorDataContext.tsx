@@ -11,7 +11,10 @@ interface CalculatorDataProviderProps {
     children: ReactNode;
 }
 
-const defaultCalculatorData = { equation: "", result: Operand.Zero as string };
+const defaultCalculatorData = { 
+    equation: "", 
+    result: Operand.Zero as string 
+};
 
 const CalculatorDataContext = createContext(defaultCalculatorData);
 const SetCalculatorDataContext = createContext<Dispatch<SetStateAction<CalculatorDataProps>>>(null);

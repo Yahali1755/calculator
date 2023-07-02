@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Calculator from './components/calculator';
+import { Calculator } from './components/calculator';
 import { CalculatorDataProvider  } from './contexts/calculatorDataContext';
 import './index.css'
 

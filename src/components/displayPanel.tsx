@@ -5,15 +5,14 @@ import { useCalculatorData } from '../contexts/calculatorDataContext';
 
 const styles = {
   input: { 
-    fontSize: '1.5vw', 
     textAlign: 'center' as const
   },
   displayPanel: {
+    fontSize: '1.5vw', 
     backgroundColor: 'white',
     border: '1px solid black',
-    height: 1,
-    width: 1,
-    textAlign: 'center',
+    height: '100%',
+    width: '100%',
     input: {
       "&::placeholder": {
          opacity: 1,
@@ -22,7 +21,7 @@ const styles = {
   }
 }
 
-const DisplayPanel: FC  = () => {
+export const DisplayPanel: FC  = () => {
   const {equation, result} = useCalculatorData();
 
   return (
@@ -30,5 +29,3 @@ const DisplayPanel: FC  = () => {
           inputProps={{ style: styles.input }} sx={styles.displayPanel}/>
   );
 };
-
-export default DisplayPanel;
