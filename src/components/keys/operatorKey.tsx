@@ -8,21 +8,23 @@ import { getAdjustedEquationOnMinusKeyClick, isLastKeyAnOperator, isResultEmpty 
 export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
   const setCalculatorData = useSetCalculatorData();
 
-  const appendOperator = () => setCalculatorData(({ equation, result }) => {
-    if (!isResultEmpty(result)) {
-      return {equation: result.concat(` ${label} `), result: ""};
-    }
-    
-    if (isMinusKey(label)) {
-      return {equation: getAdjustedEquationOnMinusKeyClick(equation), result: ""};
-    };
+  const appendOperator = () => {
+    setCalculatorData(({ equation, result }) => {
+      if (!isResultEmpty(result)) {
+        return {equation: result.concat(` ${label} `), result: ""};
+      }
+      
+      if (isMinusKey(label)) {
+        return {equation: getAdjustedEquationOnMinusKeyClick(equation), result: ""};
+      };
 
-    if (isLastKeyAnOperator(equation)) {
-      return {equation, result: ""};
-    };
+      if (isLastKeyAnOperator(equation)) {
+        return {equation, result: ""};
+      };
 
-    return {equation: equation.concat(` ${label} `), result: ""};
-  });
+      return {equation: equation.concat(` ${label} `), result: ""};
+    });
+  };
 
   return (
     <Key onClick={appendOperator} label={label}/>

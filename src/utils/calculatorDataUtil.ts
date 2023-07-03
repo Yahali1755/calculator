@@ -17,10 +17,6 @@ export const isResultEmpty = (result: string) => result === "";
 export const getAdjustedEquationOnMinusKeyClick = (equation: string): string => {
     const isLastKeyInEquationMinus = (equation: string) => isMinusKey(equation.slice(-2)[0]) || isMinusKey(equation.slice(-1)[0]);
 
-    if (isLastOperandZero(equation)) {
-        return Operator.Subtraction;
-    };
-
     if (isLastKeyInEquationMinus(equation)) {
         return equation;
     };
