@@ -1,12 +1,11 @@
 import { FC } from 'react';
+import { CssBaseline } from '@mui/material';
 
-import { Calculator } from './components/calculator';
-import { CalculatorDataProvider  } from './contexts/calculatorDataContext';
-import './index.css'
+import { Calculator } from './calculator';
 
 const App: FC = () => 
-    <CalculatorDataProvider>
+    <CssBaseline>
         <Calculator/>
-    </CalculatorDataProvider>
+    </CssBaseline>
 
 export default App;

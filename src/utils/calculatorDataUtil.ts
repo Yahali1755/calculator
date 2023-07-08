@@ -1,10 +1,9 @@
-import { Operand } from '../constants/operand';
 import { Operator } from '../constants/operator';
 import { isMinusKey } from './operatorUtil';
 
 export const isLastKeyAnOperator = (equation: string) => equation && equation.slice(-1) === ' ';
 
-export const isLastOperandZero = (equation: string) => equation.split(' ').pop() === Operand.Zero;
+export const isLastOperandZero = (equation: string) => equation.split(' ').pop() === '0';
 
 export const doesLastEquationOperandContainDot = (equation: string) => equation.split(' ').pop().includes('.');
 

@@ -1,11 +1,10 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps} from './key';
-import { useSetCalculatorData } from '../../contexts/calculatorDataContext';
-import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../../utils/calculatorDataUtil';
-import { Operand } from '../../constants/operand';
+import { useSetCalculatorData } from '../contexts/calculatorDataContext';
+import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../utils/calculatorDataUtil';
 
-const isDotKey = (key: string) => key === Operand.Dot;
+const isDotKey = (key: string) => key === '.';
 
 export const OperandKey: FC<BaseKeyProps> = ({ label }) => {
   const setCalculatorData = useSetCalculatorData();

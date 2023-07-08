@@ -6,7 +6,6 @@ export interface BaseKeyProps {
 }
 
 interface KeyProps extends BaseKeyProps {
-  xs?: number,
   onClick: () => void
 };
 
@@ -25,8 +24,8 @@ const styles = {
   }
 }
 
-export const Key: FC<KeyProps> = ({ label, xs, onClick }) => 
-  <Grid xs={xs ?? 4}>
+export const Key: FC<KeyProps> = ({ label, onClick }) => 
+  <Grid xs={3}>
     <Button onClick={onClick} sx={styles.key}> 
       { label } 
     </Button>

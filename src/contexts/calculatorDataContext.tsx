@@ -1,7 +1,5 @@
 import { useContext, useState, FC, createContext, SetStateAction, Dispatch, ReactNode } from 'react'
 
-import { Operand } from '../constants/operand';
-
 interface CalculatorDataProps {
     equation: string;
     result: string;
@@ -12,8 +10,8 @@ interface CalculatorDataProviderProps {
 }
 
 const defaultCalculatorData = { 
-    equation: "", 
-    result: Operand.Zero as string 
+    equation: '', 
+    result: '0'
 };
 
 const CalculatorDataContext = createContext(defaultCalculatorData);

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { evaluate } from 'mathjs';
 
-import { Key, BaseKeyProps} from './key';
-import { useSetCalculatorData } from '../../contexts/calculatorDataContext';
-import { isEquationEmpty, isLastKeyAnOperator } from '../../utils/calculatorDataUtil';
+import { Key } from './key';
+import { useSetCalculatorData } from '../contexts/calculatorDataContext';
+import { isEquationEmpty, isLastKeyAnOperator } from '../utils/calculatorDataUtil';
 
-export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
+export const EqualsKey: FC = () => {
   const setCalculatorData = useSetCalculatorData();
   
   const calculate = () => {
@@ -31,6 +31,6 @@ export const EqualsKey: FC<BaseKeyProps> = ({ label }) => {
   };
 
   return (
-    <Key onClick={calculate} label={label}/>
+    <Key onClick={calculate} label={'='}/>
   );
 };
