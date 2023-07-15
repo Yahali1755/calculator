@@ -1,4 +1,4 @@
-import { useContext, useState, FC, createContext, SetStateAction, Dispatch, ReactNode } from 'react'
+import { useContext, useState, FC, createContext, SetStateAction, Dispatch, ReactNode, useMemo } from 'react'
 
 interface CalculatorStateProps {
     equation: string,
@@ -22,8 +22,10 @@ export const useCalculatorState = () => useContext<CalculatorStateProviderProps>
 export const CalculatorStateProvider: FC<{children: ReactNode}> = ({ children }) => {
     const [calculatorState, setCalculatorState] = useState<CalculatorStateProps>(defaultCalculatorData);
 
+    const memoizedCalculatorState = useMemo(() => calculatorState, [calculatorState])
+
     return (
-        <CalculatorStateContext.Provider value={{calculatorState, setCalculatorState}}>
+        <CalculatorStateContext.Provider value={{calculatorState: memoizedCalculatorState, setCalculatorState}}>
             { children }
         </CalculatorStateContext.Provider>
     );
