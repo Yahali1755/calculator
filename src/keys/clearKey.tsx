@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Key } from './key';
-import { useSetCalculatorData } from '../contexts/calculatorDataContext';
+import { useSetCalculatorData } from '../contexts/calculatorStateContext';
 
 export const ClearKey: FC = () => {
     const setCalculatorData = useSetCalculatorData();

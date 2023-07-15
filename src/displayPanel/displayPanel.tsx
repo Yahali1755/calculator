@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { FC } from 'react';
 
-import { useCalculatorData } from '../contexts/calculatorDataContext';
+import { useCalculatorState } from '../contexts/calculatorStateContext';
 
 const styles = {
   displayPanel: {
@@ -13,7 +13,7 @@ const styles = {
 };
 
 export const DisplayPanel: FC  = () => {
-  const {equation, result} = useCalculatorData();
+  const {equation, result} = useCalculatorState();
 
   return (
       <Typography display='flex' alignItems='center' justifyContent='center' sx={styles.displayPanel}>

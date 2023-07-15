@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Key, BaseKeyProps} from './key';
-import { useSetCalculatorData } from '../contexts/calculatorDataContext';
+import { useSetCalculatorData } from '../contexts/calculatorStateContext';
 import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../utils/calculatorDataUtil';
 
 const isDotKey = (key: string) => key === '.';

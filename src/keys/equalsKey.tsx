@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { evaluate } from 'mathjs';
 
 import { Key } from './key';
-import { useSetCalculatorData } from '../contexts/calculatorDataContext';
+import { useSetCalculatorData } from '../contexts/calculatorStateContext';
 import { isEquationEmpty, isLastKeyAnOperator } from '../utils/calculatorDataUtil';
 
 export const EqualsKey: FC = () => {

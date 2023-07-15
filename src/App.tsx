@@ -1,11 +1,20 @@
 import { FC } from 'react';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Grid } from '@mui/material';
 
-import { Calculator } from './calculator';
+import { Calculator } from './calculator/calculator';
 
-const App: FC = () => 
+const styles = {
+    appContainer: {
+        backgroundColor: '#404040',
+        height: '100vh'
+    },  
+}
+
+const App: FC = () =>
     <CssBaseline>
-        <Calculator/>
+        <Grid container sx={styles.appContainer}>
+            <Calculator/>
+        </Grid>
     </CssBaseline>
 
 export default App;

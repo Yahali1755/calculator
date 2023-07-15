@@ -24,9 +24,20 @@ const styles = {
   }
 }
 
-export const Key: FC<KeyProps> = ({ label, onClick }) => 
-  <Grid xs={3}>
-    <Button onClick={onClick} sx={styles.key}> 
-      { label } 
-    </Button>
-  </Grid>
+export const Key: FC<KeyProps> = ({ label, onClick }) => {
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      // Handle Enter key press
+      console.log('Enter key pressed!');
+      // Add your logic here for the Enter key press action
+    }
+  };
+
+  return (
+    <Grid xs={3}>
+      <Button onClick={onClick} sx={styles.key}> 
+        { label } 
+      </Button>
+    </Grid>
+  )
+}

@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Key, BaseKeyProps} from './key';
 import { isMinusKey } from '../utils/operatorUtil';
-import { useSetCalculatorData } from '../contexts/calculatorDataContext';
+import { useSetCalculatorData } from '../contexts/calculatorStateContext';
 import { getAdjustedEquationOnMinusKeyClick, isLastKeyAnOperator, isResultEmpty } from '../utils/calculatorDataUtil';
 
 export const OperatorKey: FC<BaseKeyProps> = ({ label }) => {
