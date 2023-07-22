@@ -1,5 +1,5 @@
 import { Grid, Button } from '@mui/material';
-import { FC } from 'react';
+import { FC, KeyboardEvent, useEffect } from 'react';
 
 export interface BaseKeyProps {
   label: string
@@ -7,6 +7,7 @@ export interface BaseKeyProps {
 
 interface KeyProps extends BaseKeyProps {
   onClick: () => void
+  onKeyDown: (event: KeyboardEvent) => void,
 };
 
 const styles = {
@@ -24,20 +25,32 @@ const styles = {
   }
 }
 
-export const Key: FC<KeyProps> = ({ label, onClick }) => {
+export const Key: FC<KeyProps> = ({ label, onClick, onKeyDown }) => {
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      // Handle Enter key press
-      console.log('Enter key pressed!');
-      // Add your logic here for the Enter key press action
+    if (event.key === label) {
+      // Trigger button click when Enter key is pressed
+      const buttonElement = document.getElementById(label);
+
+      if (buttonElement) {
+        buttonElement.click();
+      }
     }
   };
 
   return (
     <Grid xs={3}>
-      <Button onClick={onClick} sx={styles.key}> 
+      <Button id={label} onClick={onClick} sx={styles.key}> 
         { label } 
       </Button>
     </Grid>
   )
 }
+

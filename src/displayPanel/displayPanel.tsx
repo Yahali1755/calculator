@@ -13,7 +13,7 @@ const styles = {
 };
 
 export const DisplayPanel: FC  = () => {
-  const {equation, result} = useCalculatorState();
+  const { calculatorState: {equation, result} } = useCalculatorState();
 
   return (
       <Typography display='flex' alignItems='center' justifyContent='center' sx={styles.displayPanel}>

@@ -1,36 +1,18 @@
 import { FC } from 'react';
-import { evaluate } from 'mathjs';
 
 import { Key } from './key';
-import { useSetCalculatorData } from '../contexts/calculatorStateContext';
-import { isEquationEmpty, isLastKeyAnOperator } from '../utils/calculatorDataUtil';
+import { useCalculate } from '../hooks/useCalculate';
 
 export const EqualsKey: FC = () => {
-  const setCalculatorData = useSetCalculatorData();
-  
-  const calculate = () => {
-    setCalculatorData(({ equation, result }) => {
-      if (isLastKeyAnOperator(equation)) {
-        return {equation, result};
-      };
+  const calculate = useCalculate();
 
-      if (isEquationEmpty(equation)) {
-        return {equation, result}
-      }
-
-      try {
-        const newResult = evaluate(equation);
-
-        const roundedNewResult = Math.round(newResult * 1000) / 1000;
-
-        return {equation: "", result: roundedNewResult.toString()};
-      } catch {
-        return {equation: "", result: "Error"};
-      }
-    });
+  const handleKeyDown = (event) => {
+    if (event.key === "=") {
+      calculate();
+    }
   };
 
   return (
-    <Key onClick={calculate} label={'='}/>
+    <Key onClick={calculate} onKeyDown={handleKeyDown} label={'='}/>
   );
 };

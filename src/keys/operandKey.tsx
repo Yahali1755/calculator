@@ -1,29 +1,18 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 
 import { Key, BaseKeyProps} from './key';
-import { useSetCalculatorData } from '../contexts/calculatorStateContext';
-import { doesLastEquationOperandContainDot, isLastOperandZero, sliceLastKeyFromEquation } from '../utils/calculatorDataUtil';
-
-const isDotKey = (key: string) => key === '.';
+import { useAppendOperand } from '../hooks/useAppendOperand';
 
 export const OperandKey: FC<BaseKeyProps> = ({ label }) => {
-  const setCalculatorData = useSetCalculatorData();
-  
-  const appendOperand = () => {
-    setCalculatorData(({ equation }) => {
-      if(doesLastEquationOperandContainDot(equation) && isDotKey(label)) {
-        return {equation, result: ""};
-      } 
+  const appendOperand = useAppendOperand();
 
-      if (isLastOperandZero(equation) && !isDotKey(label)) {
-        return {equation: sliceLastKeyFromEquation(equation).concat(label), result: ""};
-      };
-
-      return {equation: equation.concat(label), result: ""};
-    });
-  }
+  const handleKeyDown = (event) => {
+    if (event.key === label) {
+      appendOperand(label);
+    }
+  };
   
   return (
-    <Key onClick={appendOperand} label={label}/>
+    <Key onClick={() => appendOperand(label)} onKeyDown={handleKeyDown} label={label}/>
   );
 };

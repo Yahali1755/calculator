@@ -1,16 +1,18 @@
 import { FC } from 'react';
 
 import { Key } from './key';
-import { useSetCalculatorData } from '../contexts/calculatorStateContext';
+import { useClearEquation } from '../hooks/useClearEquation';
 
 export const ClearKey: FC = () => {
-    const setCalculatorData = useSetCalculatorData();
+    const clearEquation = useClearEquation();
 
-    const clearEquation = () => {
-        setCalculatorData({result: '0', equation: ""});
+    const handleKeyDown = (event) => {
+        if (event.key === "c") {
+            clearEquation();
+        }
     };
 
     return (
-        <Key onClick={clearEquation} label={'C'}/>
+        <Key onClick={clearEquation} onKeyDown={handleKeyDown} label={'C'}/>
     );
 };
