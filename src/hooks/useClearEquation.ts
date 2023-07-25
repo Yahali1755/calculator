@@ -1,7 +1,7 @@
-import { useCalculatorState } from '../contexts/calculatorStateContext';
+import { useSetCalculatorState } from '../contexts/calculatorStateContext';
 
 export const useClearEquation = () => {
-    const { setCalculatorState } = useCalculatorState();
+    const setCalculatorState = useSetCalculatorState();
     
     const clearEquation = () => {
         setCalculatorState({result: '0', equation: ""});

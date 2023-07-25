@@ -1,10 +1,10 @@
 import { evaluate } from 'mathjs';
 
-import { useCalculatorState } from '../contexts/calculatorStateContext';
+import { useSetCalculatorState } from '../contexts/calculatorStateContext';
 import { isLastKeyAnOperator } from '../utils/calculatorDataUtil';
 
 export const useCalculate = () => {
-    const { setCalculatorState } = useCalculatorState();
+    const setCalculatorState = useSetCalculatorState();
     
     const calculate = () => {
         setCalculatorState(({ equation, result}) => {

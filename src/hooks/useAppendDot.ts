@@ -1,9 +1,9 @@
-import { useCalculatorState } from "../contexts/calculatorStateContext";
+import { useSetCalculatorState } from '../contexts/calculatorStateContext';
 
 const doesLastEquationOperandContainDot = (equation: string) => equation.split(' ').pop().includes('.');
 
 export const useAppendDot = () => {
-    const { setCalculatorState } = useCalculatorState();
+    const setCalculatorState = useSetCalculatorState();
     
     const appendDot = () => {
         setCalculatorState(({ equation, result}) => {

@@ -1,8 +1,8 @@
-import { useCalculatorState } from '../contexts/calculatorStateContext';
+import { useSetCalculatorState } from '../contexts/calculatorStateContext';
 import { isLastKeyAnOperator } from '../utils/calculatorDataUtil';
 
 export const useAppendOperator = () => {
-    const { setCalculatorState } = useCalculatorState();
+    const setCalculatorState = useSetCalculatorState();
     
     const appendOperator = (label: string) => {
         setCalculatorState(({ equation, result }) => {

@@ -1,11 +1,11 @@
-import { useCalculatorState } from "../contexts/calculatorStateContext";
+import { useSetCalculatorState } from '../contexts/calculatorStateContext';
 
 export const isLastOperandZero = (equation: string) => equation.split(' ').pop() === '0';
 
 export const sliceLastKeyFromEquation = (equation: string) => equation.substring(0, equation.length - 1);
 
 export const useAppendOperand = () => {
-    const { setCalculatorState } = useCalculatorState();
+    const setCalculatorState = useSetCalculatorState();
     
     const appendOperand = (label: string) => {
         setCalculatorState(({ equation, result }) => {
