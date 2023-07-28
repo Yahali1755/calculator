@@ -1,1 +1,0 @@
-export const isLastKeyAnOperator = (equation: string) => equation && equation.slice(-1) === ' ';

@@ -1,11 +1,12 @@
 import { useSetCalculatorState } from '../contexts/calculatorStateContext';
+import { replaceOperatorsWithSpaces } from '../utils/operatorUtil';
 
-const doesLastEquationOperandContainDot = (equation: string) => equation.split(' ').pop().includes('.');
+const doesLastEquationOperandContainDot = (equation: string) => replaceOperatorsWithSpaces(equation).split(' ').pop().includes('.');
 
 export const useAppendDot = () => {
     const setCalculatorState = useSetCalculatorState();
     
-    const appendDot = () => {
+    return () => {
         setCalculatorState(({ equation, result}) => {
             if (doesLastEquationOperandContainDot(equation)) {
                 return {equation, result};
@@ -14,6 +15,4 @@ export const useAppendDot = () => {
             return {equation: equation.concat('.'), result};
         });
     };
-
-    return appendDot;
 };

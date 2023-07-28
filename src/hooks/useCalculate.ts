@@ -1,12 +1,12 @@
 import { evaluate } from 'mathjs';
 
 import { useSetCalculatorState } from '../contexts/calculatorStateContext';
-import { isLastKeyAnOperator } from '../utils/calculatorDataUtil';
+import { isLastKeyAnOperator } from '../utils/operatorUtil';
 
 export const useCalculate = () => {
     const setCalculatorState = useSetCalculatorState();
     
-    const calculate = () => {
+    return () => {
         setCalculatorState(({ equation, result}) => {
             if (equation === "" || isLastKeyAnOperator(equation)) {
                 return {equation, result}
@@ -23,6 +23,4 @@ export const useCalculate = () => {
             }
         });
     };
-
-    return calculate;
 };

@@ -3,6 +3,7 @@ import { FC } from 'react';
 
 import { useCalculatorState } from '../contexts/calculatorStateContext';
 import { Operator } from '../constants/operator';
+import { isOperator } from '../utils/operatorUtil';
 
 const styles = {
   displayPanel: {
@@ -17,7 +18,6 @@ export const DisplayPanel: FC  = () => {
   const { equation, result } = useCalculatorState();
 
   const formatEquation = (equation: string) => {
-    const isOperator = (character: string) => Object.values(Operator).some(operator => operator === character);
     let formattedEquation = "";
     let lastCharacter = result;
 

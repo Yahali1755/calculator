@@ -35,7 +35,7 @@ export const Key: FC<KeyProps> = ({ label, onClick }) => {
     };
   }, []);
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === label) {
       buttonRef.current.click();
     }
