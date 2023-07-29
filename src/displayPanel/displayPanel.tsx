@@ -23,7 +23,7 @@ export const DisplayPanel: FC  = () => {
 
     Array.from(equation).forEach(character => {
       if (isOperator(character)) {
-        if (character === Operator.Subtraction && isOperator(lastCharacter)) {
+        if (character === Operator.Subtraction && (isOperator(lastCharacter) || lastCharacter === result)) {
           formattedEquation += ` ${character}`;
         }
         else {
