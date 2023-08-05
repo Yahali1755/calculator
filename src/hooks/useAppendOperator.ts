@@ -10,7 +10,7 @@ const isLastKeyMinus = (equation: string) => equation.slice(-1) === Operator.Sub
 export const useAppendOperator = () => {
     const setCalculatorState = useSetCalculatorState();
     
-    return (label: string) => {
+    return (label: string) => {       
         setCalculatorState(({ equation, result }) => {
             if (isTwoOperatorsConsecutively(equation) || (isLastKeyMinus(equation) && label === Operator.Subtraction)) {
                 return {equation, result}
@@ -19,6 +19,10 @@ export const useAppendOperator = () => {
             if (isLastKeyAnOperator(equation) && label !== Operator.Subtraction) {
                 return {equation: sliceLastKeyFromEquation(equation).concat(label), result};
             };
+
+            if (result === "Error") {
+                return {equation: "0".concat(label), result: ""}
+            }
 
             if (equation === "") {
                 return {equation: result.concat(label), result: ""}

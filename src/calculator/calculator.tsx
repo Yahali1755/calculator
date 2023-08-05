@@ -18,11 +18,11 @@ const styles = {
 
 export const Calculator: FC = () =>
   <CalculatorStateProvider>
-    <Grid container item xs={3} sx={styles.calculatorContainer}>
-      <Grid item>
+    <Grid container xs={3} sx={styles.calculatorContainer}>
+      <Grid sx={{overflow: 'auto', overflowX: 'auto'}} item>
         <DisplayPanel/>
       </Grid>
-      <Grid container item>
+      <Grid container>
         <Keys/>
       </Grid>
     </Grid>

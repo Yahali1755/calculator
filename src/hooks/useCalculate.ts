@@ -5,17 +5,24 @@ import { isLastKeyAnOperator } from '../utils/operatorUtil';
 
 export const useCalculate = () => {
     const setCalculatorState = useSetCalculatorState();
+
+    const isDivisionByZero = (equation: string) => equation.includes("/0");
     
     return () => {
         setCalculatorState(({ equation, result}) => {
             if (equation === "" || isLastKeyAnOperator(equation)) {
                 return {equation, result}
             }
+
+            if(isDivisionByZero(equation)) {
+                return {equation: "", result: "Error"};
+            }
     
             try {
                 const newResult = evaluate(equation);
-    
-                const roundedNewResult = Math.round(newResult * 1000) / 1000;
+                
+                const decimalPlaces = 3;
+                const roundedNewResult = +newResult.toFixed(decimalPlaces);
     
                 return {equation: "", result: roundedNewResult.toString()};
             } catch {

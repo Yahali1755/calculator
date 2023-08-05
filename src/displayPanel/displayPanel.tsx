@@ -10,7 +10,7 @@ const styles = {
     fontSize: '1.5vw', 
     backgroundColor: 'white',
     border: '1px solid black',
-    height: '100%',
+    height: '100%'
   }
 };
 
