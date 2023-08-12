@@ -13,13 +13,17 @@ const styles = {
     height: '60%',
     minWidth: '200px',
     minHeight: '300px'
+  },
+  displayPanelContainer: {
+    overflow: 'auto',
+    backgroundColor: 'white'
   }
 };
 
 export const Calculator: FC = () =>
   <CalculatorStateProvider>
     <Grid container xs={3} sx={styles.calculatorContainer}>
-      <Grid sx={{flex: 1, overflow: 'auto'}} item>
+      <Grid sx={styles.displayPanelContainer}>
         <DisplayPanel/>
       </Grid>
       <Grid container>
