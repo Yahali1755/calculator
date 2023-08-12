@@ -3,5 +3,6 @@ export const Operator = {
     Subtraction: '-',
     Multiplication: '*',
     Division: '/',
-    Modulus: '%'
+    Modulus: '%',
+    Power: '^'
 } as const

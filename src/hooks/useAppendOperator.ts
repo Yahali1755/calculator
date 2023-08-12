@@ -1,9 +1,8 @@
 import { Operator } from '../constants/operator';
 import { useSetCalculatorState } from '../contexts/calculatorStateContext';
 import { isLastKeyAnOperator } from '../utils/operatorUtil';
-import { sliceLastKeyFromEquation } from './useAppendOperand';
 
-const isTwoOperatorsConsecutively = (equation: string) => isLastKeyAnOperator(sliceLastKeyFromEquation(equation));
+const isTwoOperatorsConsecutively = (equation: string) => isLastKeyAnOperator(equation.substring(0, equation.length - 1));
 
 const isLastKeyMinus = (equation: string) => equation.slice(-1) === Operator.Subtraction;
 
@@ -17,15 +16,15 @@ export const useAppendOperator = () => {
             }
 
             if (isLastKeyAnOperator(equation) && label !== Operator.Subtraction) {
-                return {equation: sliceLastKeyFromEquation(equation).concat(label), result};
+                return {equation: equation.substring(0, equation.length - 1).concat(label), result};
             };
 
             if (result === "Error") {
-                return {equation: "0".concat(label), result: ""}
+                return {equation: "0".concat(label), result}
             }
 
             if (equation === "") {
-                return {equation: result.concat(label), result: ""}
+                return {equation: result.concat(label), result}
             }
     
             return {equation: equation.concat(label), result};

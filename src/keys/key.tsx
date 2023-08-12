@@ -1,12 +1,13 @@
-import { Grid, Button } from '@mui/material';
-import { FC, useEffect, useRef } from 'react';
+import { Grid, Button, IconButton } from '@mui/material';
+import { FC, ReactNode, useEffect, useRef } from 'react';
 
 export interface BaseKeyProps {
-  label: string
+  label?: string
 }
 
 interface KeyProps extends BaseKeyProps {
-  onClick: () => void
+  onClick: () => void,
+  icon?: ReactNode;
 };
 
 const styles = {
@@ -24,7 +25,7 @@ const styles = {
   }
 }
 
-export const Key: FC<KeyProps> = ({ label, onClick }) => {
+export const Key: FC<KeyProps> = ({ label, onClick, icon }) => {
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -43,9 +44,16 @@ export const Key: FC<KeyProps> = ({ label, onClick }) => {
 
   return (
     <Grid xs={3}>
-      <Button ref={buttonRef} onClick={onClick} sx={styles.key}> 
-        { label } 
-      </Button>
+      {
+        icon ?
+        <IconButton ref={buttonRef} onClick={onClick} sx={styles.key}>
+          { icon }
+        </IconButton>
+        :
+        <Button ref={buttonRef} onClick={onClick} sx={styles.key}> 
+          { label } 
+        </Button>
+      }
     </Grid>
   )
 }

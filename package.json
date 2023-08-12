@@ -1,6 +1,7 @@
 {
   "name": "calculator",
   "dependencies": {
+    "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.11.2",
     "mathjs": "^11.7.0",
     "react": "^18.2.0",

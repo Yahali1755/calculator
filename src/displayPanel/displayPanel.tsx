@@ -2,8 +2,7 @@ import { Typography } from '@mui/material'
 import { FC } from 'react';
 
 import { useCalculatorState } from '../contexts/calculatorStateContext';
-import { Operator } from '../constants/operator';
-import { isOperator } from '../utils/operatorUtil';
+import { formatEquation } from './formatEquation';
 
 const styles = {
   displayPanel: {
@@ -16,29 +15,6 @@ const styles = {
 
 export const DisplayPanel: FC  = () => {
   const { equation, result } = useCalculatorState();
-
-  const formatEquation = (equation: string) => {
-    let formattedEquation = "";
-    let lastCharacter = result;
-
-    Array.from(equation).forEach(character => {
-      if (isOperator(character)) {
-        if (character === Operator.Subtraction && (isOperator(lastCharacter) || lastCharacter === result)) {
-          formattedEquation += ` ${character}`;
-        }
-        else {
-          formattedEquation += ` ${character} `
-        }
-      }
-      else {
-        formattedEquation += character;
-      }      
-
-      lastCharacter = character;
-    })
-
-    return formattedEquation;
-  }
 
   const formattedEquation = formatEquation(equation);
 
