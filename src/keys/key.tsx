@@ -1,4 +1,4 @@
-import { Grid, Button, IconButton } from '@mui/material';
+import { Grid, Button, IconButton, useTheme } from '@mui/material';
 import { FC, ReactNode, useEffect, useRef } from 'react';
 
 export interface BaseKeyProps {
@@ -12,12 +12,7 @@ interface KeyProps extends BaseKeyProps {
 
 const styles = {
   key: {
-    '&:hover': {
-      backgroundColor: '#E0E0E0'
-    },
-    color: 'black',
     borderRadius: 0,
-    backgroundColor: 'lightgrey',
     width: '100%',
     height: '100%',
     fontSize: '1.5vw',
@@ -27,6 +22,7 @@ const styles = {
 
 export const Key: FC<KeyProps> = ({ label, onClick, icon }) => {
   const buttonRef = useRef(null);
+  const theme = useTheme()
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
@@ -46,11 +42,19 @@ export const Key: FC<KeyProps> = ({ label, onClick, icon }) => {
     <Grid xs={3}>
       {
         icon ?
-        <IconButton ref={buttonRef} onClick={onClick} sx={styles.key}>
+        <IconButton ref={buttonRef} onClick={onClick} sx={{...styles.key, 
+          backgroundColor: theme.palette.text.primary, 
+          color: theme.palette.background.default,
+          "&:hover": { backgroundColor: theme.palette.text.secondary}}
+        }>
           { icon }
         </IconButton>
         :
-        <Button ref={buttonRef} onClick={onClick} sx={styles.key}> 
+        <Button ref={buttonRef} onClick={onClick} sx={{...styles.key,
+          backgroundColor: theme.palette.text.primary,
+          color: theme.palette.background.default,
+          "&:hover": { backgroundColor: theme.palette.text.secondary}}
+        }> 
           { label } 
         </Button>
       }
