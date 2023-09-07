@@ -20,7 +20,9 @@ export const DisplayPanel: FC  = () => {
   return (
       <Typography display='flex' alignItems='center' justifyContent='center' 
         sx={{...styles.displayPanel, backgroundColor: theme.palette.text.primary, 
-        color: theme.palette.background.default
+        color: theme.palette.background.default, 
+        border: '1px solid',
+        borderColor: theme.palette.background.default
       }}>
            {formattedEquation ? formattedEquation : result} 
       </Typography>
