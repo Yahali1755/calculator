@@ -6,7 +6,7 @@ import { formatEquation } from './formatEquation';
 
 const styles = {
   displayPanel: {
-    fontSize: '1.5vw', 
+    fontSize: '1.5em', 
     height: '100%',
   }
 };

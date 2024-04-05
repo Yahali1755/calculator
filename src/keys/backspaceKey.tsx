@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Key } from './key';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 
+import { Key } from './key';
 import { useBackspace } from '../hooks/useBackspace';
 
 export const BackspaceKey: FC = () => {

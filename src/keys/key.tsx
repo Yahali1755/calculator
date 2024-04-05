@@ -15,7 +15,7 @@ const styles = {
     borderRadius: 0,
     width: '100%',
     height: '100%',
-    fontSize: '1.5vw',
+    fontSize: '1.5em',
     minWidth: 0
   }
 }
